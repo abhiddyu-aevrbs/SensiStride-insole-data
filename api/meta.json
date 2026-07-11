@@ -1,0 +1,43 @@
+{
+  "project": "DFU Smart Insole - plantar pressure monitoring",
+  "device": "Arduino Nano 33 BLE Rev2 (nRF52840)",
+  "sampling_rate_hz": 20,
+  "reading_count": 400,
+  "sessions_logged": 1,
+  "date_range": {
+    "start": "2026-07-10T23:59:59.046Z",
+    "end": "2026-07-11T00:00:18.996Z"
+  },
+  "channels": {
+    "calcaneus": "A3 - heel (calcaneus)",
+    "metatarsal1": "A2 - big toe (1st metatarsal head)",
+    "metatarsal3": "A1 - ball (3rd metatarsal head)",
+    "metatarsal5": "A0 - little toe (5th metatarsal head)"
+  },
+  "adc": {
+    "resolution_bits": 12,
+    "range": [
+      0,
+      4095
+    ],
+    "note": "raw ADC counts; higher = more pressure"
+  },
+  "activity_labels": [
+    "standing",
+    "walking",
+    "transition",
+    "unknown"
+  ],
+  "battery": {
+    "available": false,
+    "note": "battery voltage is not instrumented in the current firmware; battery_pct is null"
+  },
+  "calibration": {
+    "applied": false,
+    "note": "raw uncalibrated ADC; no per-sensor zero/span applied yet"
+  },
+  "data_source": "synthetic_placeholder",
+  "is_real_capture": false,
+  "notes": "PLACEHOLDER DATA generated to validate the export pipeline. Replace api/export.json with a real capture from the dashboard (Export analysis JSON). URL stays the same.",
+  "generated_at": "2026-07-11T00:00:19.053Z"
+}

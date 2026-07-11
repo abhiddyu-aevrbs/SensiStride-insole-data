@@ -1,0 +1,3602 @@
+[
+  {
+    "timestamp": "2026-07-10T23:59:59.046Z",
+    "calcaneus": 1865,
+    "metatarsal1": 1038,
+    "metatarsal3": 1531,
+    "metatarsal5": 739,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.096Z",
+    "calcaneus": 1895,
+    "metatarsal1": 975,
+    "metatarsal3": 1547,
+    "metatarsal5": 735,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.146Z",
+    "calcaneus": 1989,
+    "metatarsal1": 1058,
+    "metatarsal3": 1457,
+    "metatarsal5": 698,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.196Z",
+    "calcaneus": 1899,
+    "metatarsal1": 1017,
+    "metatarsal3": 1488,
+    "metatarsal5": 720,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.246Z",
+    "calcaneus": 1987,
+    "metatarsal1": 1033,
+    "metatarsal3": 1569,
+    "metatarsal5": 674,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.296Z",
+    "calcaneus": 1935,
+    "metatarsal1": 1067,
+    "metatarsal3": 1510,
+    "metatarsal5": 649,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.346Z",
+    "calcaneus": 1877,
+    "metatarsal1": 984,
+    "metatarsal3": 1589,
+    "metatarsal5": 712,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.396Z",
+    "calcaneus": 1918,
+    "metatarsal1": 1083,
+    "metatarsal3": 1474,
+    "metatarsal5": 667,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.446Z",
+    "calcaneus": 1892,
+    "metatarsal1": 1024,
+    "metatarsal3": 1526,
+    "metatarsal5": 730,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.496Z",
+    "calcaneus": 1874,
+    "metatarsal1": 990,
+    "metatarsal3": 1481,
+    "metatarsal5": 663,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.546Z",
+    "calcaneus": 1921,
+    "metatarsal1": 1027,
+    "metatarsal3": 1501,
+    "metatarsal5": 643,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.596Z",
+    "calcaneus": 1947,
+    "metatarsal1": 1037,
+    "metatarsal3": 1485,
+    "metatarsal5": 699,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.646Z",
+    "calcaneus": 1958,
+    "metatarsal1": 1051,
+    "metatarsal3": 1525,
+    "metatarsal5": 635,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.696Z",
+    "calcaneus": 1977,
+    "metatarsal1": 967,
+    "metatarsal3": 1482,
+    "metatarsal5": 658,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.746Z",
+    "calcaneus": 1919,
+    "metatarsal1": 1042,
+    "metatarsal3": 1466,
+    "metatarsal5": 709,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.796Z",
+    "calcaneus": 1966,
+    "metatarsal1": 1078,
+    "metatarsal3": 1493,
+    "metatarsal5": 635,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.846Z",
+    "calcaneus": 1976,
+    "metatarsal1": 1088,
+    "metatarsal3": 1566,
+    "metatarsal5": 708,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.896Z",
+    "calcaneus": 1961,
+    "metatarsal1": 1032,
+    "metatarsal3": 1505,
+    "metatarsal5": 668,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.946Z",
+    "calcaneus": 1916,
+    "metatarsal1": 1070,
+    "metatarsal3": 1537,
+    "metatarsal5": 663,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-10T23:59:59.996Z",
+    "calcaneus": 1907,
+    "metatarsal1": 976,
+    "metatarsal3": 1464,
+    "metatarsal5": 655,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.046Z",
+    "calcaneus": 1860,
+    "metatarsal1": 1050,
+    "metatarsal3": 1576,
+    "metatarsal5": 731,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.096Z",
+    "calcaneus": 1869,
+    "metatarsal1": 1046,
+    "metatarsal3": 1475,
+    "metatarsal5": 725,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.146Z",
+    "calcaneus": 1904,
+    "metatarsal1": 987,
+    "metatarsal3": 1541,
+    "metatarsal5": 707,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.196Z",
+    "calcaneus": 1865,
+    "metatarsal1": 959,
+    "metatarsal3": 1569,
+    "metatarsal5": 673,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.246Z",
+    "calcaneus": 1987,
+    "metatarsal1": 1088,
+    "metatarsal3": 1518,
+    "metatarsal5": 678,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.296Z",
+    "calcaneus": 1979,
+    "metatarsal1": 1086,
+    "metatarsal3": 1568,
+    "metatarsal5": 655,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.346Z",
+    "calcaneus": 1914,
+    "metatarsal1": 1069,
+    "metatarsal3": 1576,
+    "metatarsal5": 677,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.396Z",
+    "calcaneus": 1934,
+    "metatarsal1": 951,
+    "metatarsal3": 1531,
+    "metatarsal5": 725,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.446Z",
+    "calcaneus": 1911,
+    "metatarsal1": 1005,
+    "metatarsal3": 1488,
+    "metatarsal5": 721,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.496Z",
+    "calcaneus": 1926,
+    "metatarsal1": 1052,
+    "metatarsal3": 1530,
+    "metatarsal5": 687,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.546Z",
+    "calcaneus": 1974,
+    "metatarsal1": 971,
+    "metatarsal3": 1525,
+    "metatarsal5": 645,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.596Z",
+    "calcaneus": 1880,
+    "metatarsal1": 1004,
+    "metatarsal3": 1497,
+    "metatarsal5": 632,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.646Z",
+    "calcaneus": 1965,
+    "metatarsal1": 1064,
+    "metatarsal3": 1519,
+    "metatarsal5": 689,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.696Z",
+    "calcaneus": 1973,
+    "metatarsal1": 1017,
+    "metatarsal3": 1545,
+    "metatarsal5": 722,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.746Z",
+    "calcaneus": 1966,
+    "metatarsal1": 1001,
+    "metatarsal3": 1550,
+    "metatarsal5": 654,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.796Z",
+    "calcaneus": 1921,
+    "metatarsal1": 1009,
+    "metatarsal3": 1526,
+    "metatarsal5": 727,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.846Z",
+    "calcaneus": 1850,
+    "metatarsal1": 964,
+    "metatarsal3": 1534,
+    "metatarsal5": 710,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.896Z",
+    "calcaneus": 1892,
+    "metatarsal1": 1047,
+    "metatarsal3": 1511,
+    "metatarsal5": 671,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.946Z",
+    "calcaneus": 1930,
+    "metatarsal1": 1030,
+    "metatarsal3": 1587,
+    "metatarsal5": 687,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:00.996Z",
+    "calcaneus": 1963,
+    "metatarsal1": 957,
+    "metatarsal3": 1453,
+    "metatarsal5": 640,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.046Z",
+    "calcaneus": 1898,
+    "metatarsal1": 976,
+    "metatarsal3": 1451,
+    "metatarsal5": 664,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.096Z",
+    "calcaneus": 1986,
+    "metatarsal1": 1052,
+    "metatarsal3": 1550,
+    "metatarsal5": 709,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.146Z",
+    "calcaneus": 1964,
+    "metatarsal1": 1084,
+    "metatarsal3": 1574,
+    "metatarsal5": 749,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.196Z",
+    "calcaneus": 1877,
+    "metatarsal1": 1082,
+    "metatarsal3": 1541,
+    "metatarsal5": 635,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.246Z",
+    "calcaneus": 1932,
+    "metatarsal1": 1042,
+    "metatarsal3": 1532,
+    "metatarsal5": 710,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.296Z",
+    "calcaneus": 1863,
+    "metatarsal1": 987,
+    "metatarsal3": 1460,
+    "metatarsal5": 749,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.346Z",
+    "calcaneus": 1981,
+    "metatarsal1": 1065,
+    "metatarsal3": 1557,
+    "metatarsal5": 711,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.396Z",
+    "calcaneus": 1858,
+    "metatarsal1": 1089,
+    "metatarsal3": 1485,
+    "metatarsal5": 719,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.446Z",
+    "calcaneus": 1949,
+    "metatarsal1": 1033,
+    "metatarsal3": 1534,
+    "metatarsal5": 682,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.496Z",
+    "calcaneus": 1893,
+    "metatarsal1": 1038,
+    "metatarsal3": 1527,
+    "metatarsal5": 734,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.546Z",
+    "calcaneus": 1925,
+    "metatarsal1": 983,
+    "metatarsal3": 1537,
+    "metatarsal5": 685,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.596Z",
+    "calcaneus": 1977,
+    "metatarsal1": 1087,
+    "metatarsal3": 1516,
+    "metatarsal5": 691,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.646Z",
+    "calcaneus": 1866,
+    "metatarsal1": 973,
+    "metatarsal3": 1489,
+    "metatarsal5": 632,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.696Z",
+    "calcaneus": 1866,
+    "metatarsal1": 993,
+    "metatarsal3": 1500,
+    "metatarsal5": 684,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.746Z",
+    "calcaneus": 1964,
+    "metatarsal1": 1025,
+    "metatarsal3": 1520,
+    "metatarsal5": 729,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.796Z",
+    "calcaneus": 1990,
+    "metatarsal1": 951,
+    "metatarsal3": 1537,
+    "metatarsal5": 680,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.846Z",
+    "calcaneus": 1899,
+    "metatarsal1": 958,
+    "metatarsal3": 1567,
+    "metatarsal5": 653,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.896Z",
+    "calcaneus": 1857,
+    "metatarsal1": 1009,
+    "metatarsal3": 1510,
+    "metatarsal5": 703,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.946Z",
+    "calcaneus": 1899,
+    "metatarsal1": 1071,
+    "metatarsal3": 1567,
+    "metatarsal5": 693,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:01.996Z",
+    "calcaneus": 1858,
+    "metatarsal1": 1033,
+    "metatarsal3": 1492,
+    "metatarsal5": 648,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.046Z",
+    "calcaneus": 1965,
+    "metatarsal1": 995,
+    "metatarsal3": 1461,
+    "metatarsal5": 723,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.096Z",
+    "calcaneus": 1913,
+    "metatarsal1": 1005,
+    "metatarsal3": 1460,
+    "metatarsal5": 672,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.146Z",
+    "calcaneus": 1933,
+    "metatarsal1": 1074,
+    "metatarsal3": 1508,
+    "metatarsal5": 687,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.196Z",
+    "calcaneus": 1979,
+    "metatarsal1": 1005,
+    "metatarsal3": 1459,
+    "metatarsal5": 698,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.246Z",
+    "calcaneus": 1957,
+    "metatarsal1": 1085,
+    "metatarsal3": 1563,
+    "metatarsal5": 669,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.296Z",
+    "calcaneus": 1976,
+    "metatarsal1": 1068,
+    "metatarsal3": 1537,
+    "metatarsal5": 678,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.346Z",
+    "calcaneus": 1973,
+    "metatarsal1": 966,
+    "metatarsal3": 1526,
+    "metatarsal5": 657,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.396Z",
+    "calcaneus": 1902,
+    "metatarsal1": 951,
+    "metatarsal3": 1582,
+    "metatarsal5": 648,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.446Z",
+    "calcaneus": 1872,
+    "metatarsal1": 979,
+    "metatarsal3": 1508,
+    "metatarsal5": 680,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.496Z",
+    "calcaneus": 1931,
+    "metatarsal1": 1088,
+    "metatarsal3": 1460,
+    "metatarsal5": 658,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.546Z",
+    "calcaneus": 1911,
+    "metatarsal1": 1000,
+    "metatarsal3": 1505,
+    "metatarsal5": 668,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.596Z",
+    "calcaneus": 1962,
+    "metatarsal1": 1007,
+    "metatarsal3": 1466,
+    "metatarsal5": 667,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.646Z",
+    "calcaneus": 1907,
+    "metatarsal1": 1057,
+    "metatarsal3": 1496,
+    "metatarsal5": 646,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.696Z",
+    "calcaneus": 1906,
+    "metatarsal1": 1021,
+    "metatarsal3": 1506,
+    "metatarsal5": 660,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.746Z",
+    "calcaneus": 1901,
+    "metatarsal1": 1069,
+    "metatarsal3": 1489,
+    "metatarsal5": 728,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.796Z",
+    "calcaneus": 1952,
+    "metatarsal1": 963,
+    "metatarsal3": 1506,
+    "metatarsal5": 664,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.846Z",
+    "calcaneus": 1911,
+    "metatarsal1": 996,
+    "metatarsal3": 1516,
+    "metatarsal5": 706,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.896Z",
+    "calcaneus": 1924,
+    "metatarsal1": 1035,
+    "metatarsal3": 1544,
+    "metatarsal5": 728,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.946Z",
+    "calcaneus": 1859,
+    "metatarsal1": 955,
+    "metatarsal3": 1538,
+    "metatarsal5": 729,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:02.996Z",
+    "calcaneus": 1924,
+    "metatarsal1": 1034,
+    "metatarsal3": 1567,
+    "metatarsal5": 685,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.046Z",
+    "calcaneus": 117,
+    "metatarsal1": 1450,
+    "metatarsal3": 725,
+    "metatarsal5": 608,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.096Z",
+    "calcaneus": 102,
+    "metatarsal1": 1325,
+    "metatarsal3": 489,
+    "metatarsal5": 408,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.146Z",
+    "calcaneus": 120,
+    "metatarsal1": 881,
+    "metatarsal3": 275,
+    "metatarsal5": 288,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.196Z",
+    "calcaneus": 12,
+    "metatarsal1": 643,
+    "metatarsal3": 181,
+    "metatarsal5": 171,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.246Z",
+    "calcaneus": 44,
+    "metatarsal1": 309,
+    "metatarsal3": 130,
+    "metatarsal5": 67,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.296Z",
+    "calcaneus": 40,
+    "metatarsal1": 121,
+    "metatarsal3": 66,
+    "metatarsal5": 44,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.346Z",
+    "calcaneus": 127,
+    "metatarsal1": 95,
+    "metatarsal3": 9,
+    "metatarsal5": 28,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.396Z",
+    "calcaneus": 75,
+    "metatarsal1": 38,
+    "metatarsal3": 79,
+    "metatarsal5": 100,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.446Z",
+    "calcaneus": 516,
+    "metatarsal1": 39,
+    "metatarsal3": 59,
+    "metatarsal5": 90,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.496Z",
+    "calcaneus": 1031,
+    "metatarsal1": 66,
+    "metatarsal3": 44,
+    "metatarsal5": 112,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.546Z",
+    "calcaneus": 1523,
+    "metatarsal1": 24,
+    "metatarsal3": 101,
+    "metatarsal5": 62,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.596Z",
+    "calcaneus": 1800,
+    "metatarsal1": 13,
+    "metatarsal3": 98,
+    "metatarsal5": 60,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.646Z",
+    "calcaneus": 1748,
+    "metatarsal1": 2,
+    "metatarsal3": 211,
+    "metatarsal5": 142,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.696Z",
+    "calcaneus": 1541,
+    "metatarsal1": 14,
+    "metatarsal3": 351,
+    "metatarsal5": 173,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.746Z",
+    "calcaneus": 992,
+    "metatarsal1": 103,
+    "metatarsal3": 672,
+    "metatarsal5": 163,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.796Z",
+    "calcaneus": 629,
+    "metatarsal1": 81,
+    "metatarsal3": 1026,
+    "metatarsal5": 282,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.846Z",
+    "calcaneus": 270,
+    "metatarsal1": 54,
+    "metatarsal3": 1323,
+    "metatarsal5": 418,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.896Z",
+    "calcaneus": 196,
+    "metatarsal1": 216,
+    "metatarsal3": 1572,
+    "metatarsal5": 628,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.946Z",
+    "calcaneus": 38,
+    "metatarsal1": 415,
+    "metatarsal3": 1754,
+    "metatarsal5": 716,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:03.996Z",
+    "calcaneus": 26,
+    "metatarsal1": 612,
+    "metatarsal3": 1685,
+    "metatarsal5": 832,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.046Z",
+    "calcaneus": 99,
+    "metatarsal1": 990,
+    "metatarsal3": 1351,
+    "metatarsal5": 814,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.096Z",
+    "calcaneus": 115,
+    "metatarsal1": 1392,
+    "metatarsal3": 1053,
+    "metatarsal5": 806,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.146Z",
+    "calcaneus": 44,
+    "metatarsal1": 1508,
+    "metatarsal3": 700,
+    "metatarsal5": 627,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.196Z",
+    "calcaneus": 40,
+    "metatarsal1": 1236,
+    "metatarsal3": 492,
+    "metatarsal5": 433,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.246Z",
+    "calcaneus": 13,
+    "metatarsal1": 938,
+    "metatarsal3": 265,
+    "metatarsal5": 311,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.296Z",
+    "calcaneus": 3,
+    "metatarsal1": 591,
+    "metatarsal3": 159,
+    "metatarsal5": 165,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.346Z",
+    "calcaneus": 94,
+    "metatarsal1": 360,
+    "metatarsal3": 147,
+    "metatarsal5": 138,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.396Z",
+    "calcaneus": 17,
+    "metatarsal1": 155,
+    "metatarsal3": 86,
+    "metatarsal5": 112,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.446Z",
+    "calcaneus": 76,
+    "metatarsal1": 123,
+    "metatarsal3": 89,
+    "metatarsal5": 138,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.496Z",
+    "calcaneus": 47,
+    "metatarsal1": 56,
+    "metatarsal3": 46,
+    "metatarsal5": 111,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.546Z",
+    "calcaneus": 593,
+    "metatarsal1": 47,
+    "metatarsal3": 95,
+    "metatarsal5": 78,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.596Z",
+    "calcaneus": 1022,
+    "metatarsal1": 47,
+    "metatarsal3": 106,
+    "metatarsal5": 48,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.646Z",
+    "calcaneus": 1410,
+    "metatarsal1": 15,
+    "metatarsal3": 56,
+    "metatarsal5": 67,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.696Z",
+    "calcaneus": 1848,
+    "metatarsal1": 131,
+    "metatarsal3": 132,
+    "metatarsal5": 34,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.746Z",
+    "calcaneus": 1801,
+    "metatarsal1": 78,
+    "metatarsal3": 259,
+    "metatarsal5": 85,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.796Z",
+    "calcaneus": 1479,
+    "metatarsal1": 43,
+    "metatarsal3": 459,
+    "metatarsal5": 92,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.846Z",
+    "calcaneus": 1025,
+    "metatarsal1": 129,
+    "metatarsal3": 629,
+    "metatarsal5": 240,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.896Z",
+    "calcaneus": 511,
+    "metatarsal1": 130,
+    "metatarsal3": 950,
+    "metatarsal5": 342,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.946Z",
+    "calcaneus": 356,
+    "metatarsal1": 48,
+    "metatarsal3": 1355,
+    "metatarsal5": 426,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:04.996Z",
+    "calcaneus": 209,
+    "metatarsal1": 262,
+    "metatarsal3": 1616,
+    "metatarsal5": 657,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.046Z",
+    "calcaneus": 150,
+    "metatarsal1": 658,
+    "metatarsal3": 3079,
+    "metatarsal5": 1383,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.096Z",
+    "calcaneus": 114,
+    "metatarsal1": 1173,
+    "metatarsal3": 2897,
+    "metatarsal5": 1541,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.146Z",
+    "calcaneus": 40,
+    "metatarsal1": 1840,
+    "metatarsal3": 2439,
+    "metatarsal5": 1478,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.196Z",
+    "calcaneus": 41,
+    "metatarsal1": 2447,
+    "metatarsal3": 1862,
+    "metatarsal5": 1278,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.246Z",
+    "calcaneus": 140,
+    "metatarsal1": 2657,
+    "metatarsal3": 1312,
+    "metatarsal5": 1051,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.296Z",
+    "calcaneus": 109,
+    "metatarsal1": 2361,
+    "metatarsal3": 764,
+    "metatarsal5": 718,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.346Z",
+    "calcaneus": 64,
+    "metatarsal1": 1611,
+    "metatarsal3": 453,
+    "metatarsal5": 476,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.396Z",
+    "calcaneus": 29,
+    "metatarsal1": 981,
+    "metatarsal3": 184,
+    "metatarsal5": 340,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.446Z",
+    "calcaneus": 52,
+    "metatarsal1": 438,
+    "metatarsal3": 192,
+    "metatarsal5": 208,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.496Z",
+    "calcaneus": 112,
+    "metatarsal1": 278,
+    "metatarsal3": 93,
+    "metatarsal5": 89,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.546Z",
+    "calcaneus": 79,
+    "metatarsal1": 94,
+    "metatarsal3": 136,
+    "metatarsal5": 77,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.596Z",
+    "calcaneus": 43,
+    "metatarsal1": 60,
+    "metatarsal3": 108,
+    "metatarsal5": 30,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.646Z",
+    "calcaneus": 96,
+    "metatarsal1": 92,
+    "metatarsal3": 64,
+    "metatarsal5": 63,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.696Z",
+    "calcaneus": 1742,
+    "metatarsal1": 134,
+    "metatarsal3": 103,
+    "metatarsal5": 51,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.746Z",
+    "calcaneus": 2603,
+    "metatarsal1": 124,
+    "metatarsal3": 56,
+    "metatarsal5": 63,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.796Z",
+    "calcaneus": 3124,
+    "metatarsal1": 123,
+    "metatarsal3": 212,
+    "metatarsal5": 128,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.846Z",
+    "calcaneus": 3130,
+    "metatarsal1": 28,
+    "metatarsal3": 328,
+    "metatarsal5": 151,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.896Z",
+    "calcaneus": 2559,
+    "metatarsal1": 23,
+    "metatarsal3": 622,
+    "metatarsal5": 180,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.946Z",
+    "calcaneus": 1755,
+    "metatarsal1": 138,
+    "metatarsal3": 1136,
+    "metatarsal5": 323,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:05.996Z",
+    "calcaneus": 953,
+    "metatarsal1": 134,
+    "metatarsal3": 1721,
+    "metatarsal5": 560,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.046Z",
+    "calcaneus": 540,
+    "metatarsal1": 165,
+    "metatarsal3": 2320,
+    "metatarsal5": 826,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.096Z",
+    "calcaneus": 149,
+    "metatarsal1": 348,
+    "metatarsal3": 2803,
+    "metatarsal5": 1087,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.146Z",
+    "calcaneus": 114,
+    "metatarsal1": 610,
+    "metatarsal3": 3021,
+    "metatarsal5": 1405,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.196Z",
+    "calcaneus": 133,
+    "metatarsal1": 1209,
+    "metatarsal3": 2951,
+    "metatarsal5": 1452,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.246Z",
+    "calcaneus": 89,
+    "metatarsal1": 1815,
+    "metatarsal3": 2502,
+    "metatarsal5": 1460,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.296Z",
+    "calcaneus": 2,
+    "metatarsal1": 2485,
+    "metatarsal3": 1806,
+    "metatarsal5": 1342,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.346Z",
+    "calcaneus": 6,
+    "metatarsal1": 2572,
+    "metatarsal3": 1265,
+    "metatarsal5": 1091,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.396Z",
+    "calcaneus": 4,
+    "metatarsal1": 2242,
+    "metatarsal3": 810,
+    "metatarsal5": 685,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.446Z",
+    "calcaneus": 43,
+    "metatarsal1": 1710,
+    "metatarsal3": 369,
+    "metatarsal5": 517,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.496Z",
+    "calcaneus": 137,
+    "metatarsal1": 979,
+    "metatarsal3": 188,
+    "metatarsal5": 256,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.546Z",
+    "calcaneus": 137,
+    "metatarsal1": 443,
+    "metatarsal3": 100,
+    "metatarsal5": 116,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.596Z",
+    "calcaneus": 84,
+    "metatarsal1": 253,
+    "metatarsal3": 137,
+    "metatarsal5": 70,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.646Z",
+    "calcaneus": 31,
+    "metatarsal1": 186,
+    "metatarsal3": 73,
+    "metatarsal5": 109,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.696Z",
+    "calcaneus": 94,
+    "metatarsal1": 148,
+    "metatarsal3": 133,
+    "metatarsal5": 71,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.746Z",
+    "calcaneus": 962,
+    "metatarsal1": 70,
+    "metatarsal3": 27,
+    "metatarsal5": 60,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.796Z",
+    "calcaneus": 1700,
+    "metatarsal1": 131,
+    "metatarsal3": 140,
+    "metatarsal5": 22,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.846Z",
+    "calcaneus": 2577,
+    "metatarsal1": 93,
+    "metatarsal3": 79,
+    "metatarsal5": 123,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.896Z",
+    "calcaneus": 3113,
+    "metatarsal1": 95,
+    "metatarsal3": 182,
+    "metatarsal5": 40,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.946Z",
+    "calcaneus": 3181,
+    "metatarsal1": 23,
+    "metatarsal3": 315,
+    "metatarsal5": 168,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:06.996Z",
+    "calcaneus": 2641,
+    "metatarsal1": 5,
+    "metatarsal3": 626,
+    "metatarsal5": 244,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.046Z",
+    "calcaneus": 1793,
+    "metatarsal1": 72,
+    "metatarsal3": 1051,
+    "metatarsal5": 326,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.096Z",
+    "calcaneus": 978,
+    "metatarsal1": 57,
+    "metatarsal3": 1746,
+    "metatarsal5": 454,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.146Z",
+    "calcaneus": 512,
+    "metatarsal1": 173,
+    "metatarsal3": 2304,
+    "metatarsal5": 781,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.196Z",
+    "calcaneus": 284,
+    "metatarsal1": 329,
+    "metatarsal3": 2817,
+    "metatarsal5": 1138,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.246Z",
+    "calcaneus": 100,
+    "metatarsal1": 609,
+    "metatarsal3": 2949,
+    "metatarsal5": 1368,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.296Z",
+    "calcaneus": 65,
+    "metatarsal1": 1128,
+    "metatarsal3": 2921,
+    "metatarsal5": 1455,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.346Z",
+    "calcaneus": 6,
+    "metatarsal1": 1827,
+    "metatarsal3": 2382,
+    "metatarsal5": 1550,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.396Z",
+    "calcaneus": 56,
+    "metatarsal1": 2385,
+    "metatarsal3": 1843,
+    "metatarsal5": 1339,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.446Z",
+    "calcaneus": 63,
+    "metatarsal1": 2570,
+    "metatarsal3": 1286,
+    "metatarsal5": 1069,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.496Z",
+    "calcaneus": 20,
+    "metatarsal1": 2285,
+    "metatarsal3": 720,
+    "metatarsal5": 737,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.546Z",
+    "calcaneus": 103,
+    "metatarsal1": 1593,
+    "metatarsal3": 356,
+    "metatarsal5": 492,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.596Z",
+    "calcaneus": 62,
+    "metatarsal1": 940,
+    "metatarsal3": 244,
+    "metatarsal5": 296,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.646Z",
+    "calcaneus": 122,
+    "metatarsal1": 545,
+    "metatarsal3": 109,
+    "metatarsal5": 138,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.696Z",
+    "calcaneus": 119,
+    "metatarsal1": 275,
+    "metatarsal3": 111,
+    "metatarsal5": 135,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.746Z",
+    "calcaneus": 119,
+    "metatarsal1": 59,
+    "metatarsal3": 33,
+    "metatarsal5": 84,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.796Z",
+    "calcaneus": 104,
+    "metatarsal1": 81,
+    "metatarsal3": 141,
+    "metatarsal5": 21,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.846Z",
+    "calcaneus": 992,
+    "metatarsal1": 24,
+    "metatarsal3": 46,
+    "metatarsal5": 28,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.896Z",
+    "calcaneus": 1707,
+    "metatarsal1": 21,
+    "metatarsal3": 152,
+    "metatarsal5": 28,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.946Z",
+    "calcaneus": 2653,
+    "metatarsal1": 74,
+    "metatarsal3": 137,
+    "metatarsal5": 99,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:07.996Z",
+    "calcaneus": 3113,
+    "metatarsal1": 42,
+    "metatarsal3": 142,
+    "metatarsal5": 138,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.046Z",
+    "calcaneus": 3261,
+    "metatarsal1": 69,
+    "metatarsal3": 358,
+    "metatarsal5": 119,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.096Z",
+    "calcaneus": 2642,
+    "metatarsal1": 1,
+    "metatarsal3": 718,
+    "metatarsal5": 236,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.146Z",
+    "calcaneus": 1784,
+    "metatarsal1": 114,
+    "metatarsal3": 1171,
+    "metatarsal5": 295,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.196Z",
+    "calcaneus": 917,
+    "metatarsal1": 48,
+    "metatarsal3": 1686,
+    "metatarsal5": 561,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.246Z",
+    "calcaneus": 479,
+    "metatarsal1": 149,
+    "metatarsal3": 2241,
+    "metatarsal5": 803,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.296Z",
+    "calcaneus": 204,
+    "metatarsal1": 359,
+    "metatarsal3": 2836,
+    "metatarsal5": 1099,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.346Z",
+    "calcaneus": 144,
+    "metatarsal1": 683,
+    "metatarsal3": 3032,
+    "metatarsal5": 1335,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.396Z",
+    "calcaneus": 102,
+    "metatarsal1": 1100,
+    "metatarsal3": 2901,
+    "metatarsal5": 1538,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.446Z",
+    "calcaneus": 132,
+    "metatarsal1": 1870,
+    "metatarsal3": 2470,
+    "metatarsal5": 1439,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.496Z",
+    "calcaneus": 63,
+    "metatarsal1": 2485,
+    "metatarsal3": 1878,
+    "metatarsal5": 1308,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.546Z",
+    "calcaneus": 16,
+    "metatarsal1": 2557,
+    "metatarsal3": 1178,
+    "metatarsal5": 1011,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.596Z",
+    "calcaneus": 69,
+    "metatarsal1": 2326,
+    "metatarsal3": 700,
+    "metatarsal5": 760,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.646Z",
+    "calcaneus": 26,
+    "metatarsal1": 1682,
+    "metatarsal3": 441,
+    "metatarsal5": 467,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.696Z",
+    "calcaneus": 57,
+    "metatarsal1": 1053,
+    "metatarsal3": 237,
+    "metatarsal5": 311,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.746Z",
+    "calcaneus": 106,
+    "metatarsal1": 499,
+    "metatarsal3": 77,
+    "metatarsal5": 121,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.796Z",
+    "calcaneus": 115,
+    "metatarsal1": 242,
+    "metatarsal3": 148,
+    "metatarsal5": 147,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.846Z",
+    "calcaneus": 72,
+    "metatarsal1": 90,
+    "metatarsal3": 128,
+    "metatarsal5": 59,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.896Z",
+    "calcaneus": 94,
+    "metatarsal1": 95,
+    "metatarsal3": 83,
+    "metatarsal5": 75,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.946Z",
+    "calcaneus": 913,
+    "metatarsal1": 10,
+    "metatarsal3": 51,
+    "metatarsal5": 87,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:08.996Z",
+    "calcaneus": 1702,
+    "metatarsal1": 11,
+    "metatarsal3": 136,
+    "metatarsal5": 19,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.046Z",
+    "calcaneus": 2659,
+    "metatarsal1": 58,
+    "metatarsal3": 147,
+    "metatarsal5": 96,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.096Z",
+    "calcaneus": 3138,
+    "metatarsal1": 107,
+    "metatarsal3": 232,
+    "metatarsal5": 102,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.146Z",
+    "calcaneus": 3143,
+    "metatarsal1": 6,
+    "metatarsal3": 312,
+    "metatarsal5": 99,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.196Z",
+    "calcaneus": 2660,
+    "metatarsal1": 136,
+    "metatarsal3": 702,
+    "metatarsal5": 173,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.246Z",
+    "calcaneus": 1747,
+    "metatarsal1": 100,
+    "metatarsal3": 1117,
+    "metatarsal5": 264,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.296Z",
+    "calcaneus": 1042,
+    "metatarsal1": 40,
+    "metatarsal3": 1763,
+    "metatarsal5": 559,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.346Z",
+    "calcaneus": 436,
+    "metatarsal1": 128,
+    "metatarsal3": 2333,
+    "metatarsal5": 768,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.396Z",
+    "calcaneus": 146,
+    "metatarsal1": 250,
+    "metatarsal3": 2869,
+    "metatarsal5": 1070,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.446Z",
+    "calcaneus": 65,
+    "metatarsal1": 626,
+    "metatarsal3": 2980,
+    "metatarsal5": 1357,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.496Z",
+    "calcaneus": 77,
+    "metatarsal1": 1228,
+    "metatarsal3": 2906,
+    "metatarsal5": 1470,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.546Z",
+    "calcaneus": 6,
+    "metatarsal1": 1862,
+    "metatarsal3": 2415,
+    "metatarsal5": 1500,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.596Z",
+    "calcaneus": 44,
+    "metatarsal1": 2399,
+    "metatarsal3": 1889,
+    "metatarsal5": 1319,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.646Z",
+    "calcaneus": 130,
+    "metatarsal1": 2677,
+    "metatarsal3": 1196,
+    "metatarsal5": 993,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.696Z",
+    "calcaneus": 71,
+    "metatarsal1": 2334,
+    "metatarsal3": 801,
+    "metatarsal5": 784,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.746Z",
+    "calcaneus": 103,
+    "metatarsal1": 1710,
+    "metatarsal3": 480,
+    "metatarsal5": 433,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.796Z",
+    "calcaneus": 139,
+    "metatarsal1": 970,
+    "metatarsal3": 291,
+    "metatarsal5": 231,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.846Z",
+    "calcaneus": 120,
+    "metatarsal1": 436,
+    "metatarsal3": 130,
+    "metatarsal5": 197,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.896Z",
+    "calcaneus": 21,
+    "metatarsal1": 264,
+    "metatarsal3": 41,
+    "metatarsal5": 117,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.946Z",
+    "calcaneus": 24,
+    "metatarsal1": 101,
+    "metatarsal3": 137,
+    "metatarsal5": 112,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:09.996Z",
+    "calcaneus": 74,
+    "metatarsal1": 58,
+    "metatarsal3": 93,
+    "metatarsal5": 55,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.046Z",
+    "calcaneus": 897,
+    "metatarsal1": 86,
+    "metatarsal3": 23,
+    "metatarsal5": 86,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.096Z",
+    "calcaneus": 1723,
+    "metatarsal1": 20,
+    "metatarsal3": 131,
+    "metatarsal5": 78,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.146Z",
+    "calcaneus": 2538,
+    "metatarsal1": 57,
+    "metatarsal3": 137,
+    "metatarsal5": 21,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.196Z",
+    "calcaneus": 3176,
+    "metatarsal1": 56,
+    "metatarsal3": 205,
+    "metatarsal5": 66,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.246Z",
+    "calcaneus": 3130,
+    "metatarsal1": 129,
+    "metatarsal3": 411,
+    "metatarsal5": 91,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.296Z",
+    "calcaneus": 2645,
+    "metatarsal1": 66,
+    "metatarsal3": 701,
+    "metatarsal5": 160,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.346Z",
+    "calcaneus": 1828,
+    "metatarsal1": 12,
+    "metatarsal3": 1081,
+    "metatarsal5": 295,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.396Z",
+    "calcaneus": 939,
+    "metatarsal1": 67,
+    "metatarsal3": 1631,
+    "metatarsal5": 452,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.446Z",
+    "calcaneus": 503,
+    "metatarsal1": 80,
+    "metatarsal3": 2284,
+    "metatarsal5": 817,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.496Z",
+    "calcaneus": 236,
+    "metatarsal1": 286,
+    "metatarsal3": 2854,
+    "metatarsal5": 1065,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.546Z",
+    "calcaneus": 140,
+    "metatarsal1": 637,
+    "metatarsal3": 2982,
+    "metatarsal5": 1323,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.596Z",
+    "calcaneus": 83,
+    "metatarsal1": 1161,
+    "metatarsal3": 2928,
+    "metatarsal5": 1449,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.646Z",
+    "calcaneus": 81,
+    "metatarsal1": 1836,
+    "metatarsal3": 2439,
+    "metatarsal5": 1443,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.696Z",
+    "calcaneus": 106,
+    "metatarsal1": 2473,
+    "metatarsal3": 1836,
+    "metatarsal5": 1280,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.746Z",
+    "calcaneus": 58,
+    "metatarsal1": 2663,
+    "metatarsal3": 1292,
+    "metatarsal5": 1044,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.796Z",
+    "calcaneus": 19,
+    "metatarsal1": 2347,
+    "metatarsal3": 710,
+    "metatarsal5": 743,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.846Z",
+    "calcaneus": 106,
+    "metatarsal1": 1612,
+    "metatarsal3": 469,
+    "metatarsal5": 535,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.896Z",
+    "calcaneus": 30,
+    "metatarsal1": 1013,
+    "metatarsal3": 209,
+    "metatarsal5": 300,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.946Z",
+    "calcaneus": 67,
+    "metatarsal1": 571,
+    "metatarsal3": 90,
+    "metatarsal5": 227,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:10.996Z",
+    "calcaneus": 26,
+    "metatarsal1": 200,
+    "metatarsal3": 37,
+    "metatarsal5": 158,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.046Z",
+    "calcaneus": 42,
+    "metatarsal1": 79,
+    "metatarsal3": 68,
+    "metatarsal5": 83,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.096Z",
+    "calcaneus": 139,
+    "metatarsal1": 96,
+    "metatarsal3": 17,
+    "metatarsal5": 74,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.146Z",
+    "calcaneus": 79,
+    "metatarsal1": 94,
+    "metatarsal3": 127,
+    "metatarsal5": 60,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.196Z",
+    "calcaneus": 1741,
+    "metatarsal1": 89,
+    "metatarsal3": 22,
+    "metatarsal5": 28,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.246Z",
+    "calcaneus": 2581,
+    "metatarsal1": 51,
+    "metatarsal3": 158,
+    "metatarsal5": 91,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.296Z",
+    "calcaneus": 3189,
+    "metatarsal1": 83,
+    "metatarsal3": 148,
+    "metatarsal5": 73,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.346Z",
+    "calcaneus": 3220,
+    "metatarsal1": 70,
+    "metatarsal3": 358,
+    "metatarsal5": 85,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.396Z",
+    "calcaneus": 2590,
+    "metatarsal1": 118,
+    "metatarsal3": 696,
+    "metatarsal5": 165,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.446Z",
+    "calcaneus": 1740,
+    "metatarsal1": 78,
+    "metatarsal3": 1142,
+    "metatarsal5": 359,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.496Z",
+    "calcaneus": 916,
+    "metatarsal1": 116,
+    "metatarsal3": 1738,
+    "metatarsal5": 549,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.546Z",
+    "calcaneus": 521,
+    "metatarsal1": 203,
+    "metatarsal3": 2326,
+    "metatarsal5": 746,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.596Z",
+    "calcaneus": 170,
+    "metatarsal1": 300,
+    "metatarsal3": 2762,
+    "metatarsal5": 1117,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.646Z",
+    "calcaneus": 172,
+    "metatarsal1": 565,
+    "metatarsal3": 3000,
+    "metatarsal5": 1306,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.696Z",
+    "calcaneus": 89,
+    "metatarsal1": 1183,
+    "metatarsal3": 2838,
+    "metatarsal5": 1537,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.746Z",
+    "calcaneus": 58,
+    "metatarsal1": 1919,
+    "metatarsal3": 2447,
+    "metatarsal5": 1533,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.796Z",
+    "calcaneus": 139,
+    "metatarsal1": 2426,
+    "metatarsal3": 1882,
+    "metatarsal5": 1343,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.846Z",
+    "calcaneus": 122,
+    "metatarsal1": 2593,
+    "metatarsal3": 1220,
+    "metatarsal5": 988,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.896Z",
+    "calcaneus": 64,
+    "metatarsal1": 2289,
+    "metatarsal3": 703,
+    "metatarsal5": 728,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.946Z",
+    "calcaneus": 134,
+    "metatarsal1": 1666,
+    "metatarsal3": 460,
+    "metatarsal5": 441,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:11.996Z",
+    "calcaneus": 132,
+    "metatarsal1": 947,
+    "metatarsal3": 283,
+    "metatarsal5": 243,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.046Z",
+    "calcaneus": 70,
+    "metatarsal1": 542,
+    "metatarsal3": 183,
+    "metatarsal5": 233,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.096Z",
+    "calcaneus": 96,
+    "metatarsal1": 230,
+    "metatarsal3": 149,
+    "metatarsal5": 67,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.146Z",
+    "calcaneus": 2,
+    "metatarsal1": 151,
+    "metatarsal3": 99,
+    "metatarsal5": 135,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.196Z",
+    "calcaneus": 74,
+    "metatarsal1": 150,
+    "metatarsal3": 72,
+    "metatarsal5": 119,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.246Z",
+    "calcaneus": 77,
+    "metatarsal1": 51,
+    "metatarsal3": 62,
+    "metatarsal5": 64,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.296Z",
+    "calcaneus": 1697,
+    "metatarsal1": 74,
+    "metatarsal3": 113,
+    "metatarsal5": 41,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.346Z",
+    "calcaneus": 2580,
+    "metatarsal1": 37,
+    "metatarsal3": 81,
+    "metatarsal5": 68,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.396Z",
+    "calcaneus": 3187,
+    "metatarsal1": 90,
+    "metatarsal3": 214,
+    "metatarsal5": 145,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.446Z",
+    "calcaneus": 3181,
+    "metatarsal1": 40,
+    "metatarsal3": 398,
+    "metatarsal5": 106,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.496Z",
+    "calcaneus": 2628,
+    "metatarsal1": 102,
+    "metatarsal3": 697,
+    "metatarsal5": 165,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.546Z",
+    "calcaneus": 1792,
+    "metatarsal1": 102,
+    "metatarsal3": 1103,
+    "metatarsal5": 264,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.596Z",
+    "calcaneus": 1029,
+    "metatarsal1": 45,
+    "metatarsal3": 1764,
+    "metatarsal5": 522,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.646Z",
+    "calcaneus": 474,
+    "metatarsal1": 112,
+    "metatarsal3": 2328,
+    "metatarsal5": 808,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.696Z",
+    "calcaneus": 263,
+    "metatarsal1": 239,
+    "metatarsal3": 2757,
+    "metatarsal5": 1094,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.746Z",
+    "calcaneus": 58,
+    "metatarsal1": 641,
+    "metatarsal3": 3035,
+    "metatarsal5": 1317,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.796Z",
+    "calcaneus": 71,
+    "metatarsal1": 1200,
+    "metatarsal3": 2874,
+    "metatarsal5": 1543,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.846Z",
+    "calcaneus": 44,
+    "metatarsal1": 1827,
+    "metatarsal3": 2475,
+    "metatarsal5": 1475,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.896Z",
+    "calcaneus": 15,
+    "metatarsal1": 2396,
+    "metatarsal3": 1860,
+    "metatarsal5": 1272,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.946Z",
+    "calcaneus": 2,
+    "metatarsal1": 2568,
+    "metatarsal3": 1187,
+    "metatarsal5": 1047,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:12.996Z",
+    "calcaneus": 50,
+    "metatarsal1": 2358,
+    "metatarsal3": 739,
+    "metatarsal5": 717,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.046Z",
+    "calcaneus": 47,
+    "metatarsal1": 1674,
+    "metatarsal3": 448,
+    "metatarsal5": 526,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.096Z",
+    "calcaneus": 80,
+    "metatarsal1": 1009,
+    "metatarsal3": 204,
+    "metatarsal5": 282,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.146Z",
+    "calcaneus": 32,
+    "metatarsal1": 521,
+    "metatarsal3": 206,
+    "metatarsal5": 210,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.196Z",
+    "calcaneus": 105,
+    "metatarsal1": 224,
+    "metatarsal3": 43,
+    "metatarsal5": 66,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.246Z",
+    "calcaneus": 87,
+    "metatarsal1": 170,
+    "metatarsal3": 98,
+    "metatarsal5": 40,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.296Z",
+    "calcaneus": 39,
+    "metatarsal1": 130,
+    "metatarsal3": 45,
+    "metatarsal5": 55,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.346Z",
+    "calcaneus": 950,
+    "metatarsal1": 63,
+    "metatarsal3": 26,
+    "metatarsal5": 40,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.396Z",
+    "calcaneus": 1677,
+    "metatarsal1": 80,
+    "metatarsal3": 80,
+    "metatarsal5": 38,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.446Z",
+    "calcaneus": 2659,
+    "metatarsal1": 116,
+    "metatarsal3": 164,
+    "metatarsal5": 94,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.496Z",
+    "calcaneus": 3189,
+    "metatarsal1": 18,
+    "metatarsal3": 172,
+    "metatarsal5": 47,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.546Z",
+    "calcaneus": 3207,
+    "metatarsal1": 63,
+    "metatarsal3": 382,
+    "metatarsal5": 89,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.596Z",
+    "calcaneus": 2626,
+    "metatarsal1": 69,
+    "metatarsal3": 710,
+    "metatarsal5": 136,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.646Z",
+    "calcaneus": 1816,
+    "metatarsal1": 91,
+    "metatarsal3": 1156,
+    "metatarsal5": 277,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.696Z",
+    "calcaneus": 954,
+    "metatarsal1": 120,
+    "metatarsal3": 1709,
+    "metatarsal5": 562,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.746Z",
+    "calcaneus": 511,
+    "metatarsal1": 80,
+    "metatarsal3": 2340,
+    "metatarsal5": 819,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.796Z",
+    "calcaneus": 275,
+    "metatarsal1": 340,
+    "metatarsal3": 2769,
+    "metatarsal5": 1051,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.846Z",
+    "calcaneus": 112,
+    "metatarsal1": 664,
+    "metatarsal3": 3077,
+    "metatarsal5": 1292,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.896Z",
+    "calcaneus": 14,
+    "metatarsal1": 1106,
+    "metatarsal3": 2874,
+    "metatarsal5": 1511,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.946Z",
+    "calcaneus": 46,
+    "metatarsal1": 1812,
+    "metatarsal3": 2459,
+    "metatarsal5": 1517,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:13.996Z",
+    "calcaneus": 75,
+    "metatarsal1": 2495,
+    "metatarsal3": 1818,
+    "metatarsal5": 1332,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.046Z",
+    "calcaneus": 135,
+    "metatarsal1": 2557,
+    "metatarsal3": 1293,
+    "metatarsal5": 1080,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.096Z",
+    "calcaneus": 8,
+    "metatarsal1": 2237,
+    "metatarsal3": 729,
+    "metatarsal5": 776,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.146Z",
+    "calcaneus": 31,
+    "metatarsal1": 1641,
+    "metatarsal3": 432,
+    "metatarsal5": 451,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.196Z",
+    "calcaneus": 130,
+    "metatarsal1": 994,
+    "metatarsal3": 249,
+    "metatarsal5": 307,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.246Z",
+    "calcaneus": 69,
+    "metatarsal1": 463,
+    "metatarsal3": 117,
+    "metatarsal5": 176,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.296Z",
+    "calcaneus": 93,
+    "metatarsal1": 231,
+    "metatarsal3": 79,
+    "metatarsal5": 164,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.346Z",
+    "calcaneus": 12,
+    "metatarsal1": 187,
+    "metatarsal3": 49,
+    "metatarsal5": 88,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.396Z",
+    "calcaneus": 49,
+    "metatarsal1": 109,
+    "metatarsal3": 129,
+    "metatarsal5": 130,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.446Z",
+    "calcaneus": 1019,
+    "metatarsal1": 21,
+    "metatarsal3": 65,
+    "metatarsal5": 15,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.496Z",
+    "calcaneus": 1785,
+    "metatarsal1": 12,
+    "metatarsal3": 74,
+    "metatarsal5": 57,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.546Z",
+    "calcaneus": 2574,
+    "metatarsal1": 5,
+    "metatarsal3": 182,
+    "metatarsal5": 129,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.596Z",
+    "calcaneus": 3143,
+    "metatarsal1": 42,
+    "metatarsal3": 168,
+    "metatarsal5": 76,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.646Z",
+    "calcaneus": 3145,
+    "metatarsal1": 18,
+    "metatarsal3": 433,
+    "metatarsal5": 133,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.696Z",
+    "calcaneus": 2633,
+    "metatarsal1": 13,
+    "metatarsal3": 604,
+    "metatarsal5": 237,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.746Z",
+    "calcaneus": 1747,
+    "metatarsal1": 93,
+    "metatarsal3": 1056,
+    "metatarsal5": 270,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.796Z",
+    "calcaneus": 1000,
+    "metatarsal1": 30,
+    "metatarsal3": 1677,
+    "metatarsal5": 544,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.846Z",
+    "calcaneus": 459,
+    "metatarsal1": 152,
+    "metatarsal3": 2292,
+    "metatarsal5": 745,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.896Z",
+    "calcaneus": 162,
+    "metatarsal1": 234,
+    "metatarsal3": 2742,
+    "metatarsal5": 1065,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.946Z",
+    "calcaneus": 157,
+    "metatarsal1": 574,
+    "metatarsal3": 3057,
+    "metatarsal5": 1398,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:14.996Z",
+    "calcaneus": 101,
+    "metatarsal1": 1201,
+    "metatarsal3": 2823,
+    "metatarsal5": 1478,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.046Z",
+    "calcaneus": 20,
+    "metatarsal1": 1789,
+    "metatarsal3": 2389,
+    "metatarsal5": 1549,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.096Z",
+    "calcaneus": 78,
+    "metatarsal1": 2449,
+    "metatarsal3": 1858,
+    "metatarsal5": 1335,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.146Z",
+    "calcaneus": 77,
+    "metatarsal1": 2610,
+    "metatarsal3": 1289,
+    "metatarsal5": 1043,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.196Z",
+    "calcaneus": 33,
+    "metatarsal1": 2293,
+    "metatarsal3": 778,
+    "metatarsal5": 680,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.246Z",
+    "calcaneus": 122,
+    "metatarsal1": 1628,
+    "metatarsal3": 496,
+    "metatarsal5": 478,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.296Z",
+    "calcaneus": 120,
+    "metatarsal1": 945,
+    "metatarsal3": 228,
+    "metatarsal5": 238,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.346Z",
+    "calcaneus": 40,
+    "metatarsal1": 485,
+    "metatarsal3": 141,
+    "metatarsal5": 147,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.396Z",
+    "calcaneus": 135,
+    "metatarsal1": 227,
+    "metatarsal3": 51,
+    "metatarsal5": 120,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.446Z",
+    "calcaneus": 23,
+    "metatarsal1": 90,
+    "metatarsal3": 35,
+    "metatarsal5": 48,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.496Z",
+    "calcaneus": 50,
+    "metatarsal1": 145,
+    "metatarsal3": 137,
+    "metatarsal5": 68,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.546Z",
+    "calcaneus": 45,
+    "metatarsal1": 86,
+    "metatarsal3": 57,
+    "metatarsal5": 113,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.596Z",
+    "calcaneus": 1732,
+    "metatarsal1": 50,
+    "metatarsal3": 156,
+    "metatarsal5": 64,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.646Z",
+    "calcaneus": 2548,
+    "metatarsal1": 85,
+    "metatarsal3": 58,
+    "metatarsal5": 53,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.696Z",
+    "calcaneus": 3214,
+    "metatarsal1": 101,
+    "metatarsal3": 267,
+    "metatarsal5": 64,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.746Z",
+    "calcaneus": 3191,
+    "metatarsal1": 117,
+    "metatarsal3": 386,
+    "metatarsal5": 116,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.796Z",
+    "calcaneus": 2635,
+    "metatarsal1": 17,
+    "metatarsal3": 631,
+    "metatarsal5": 187,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.846Z",
+    "calcaneus": 1771,
+    "metatarsal1": 10,
+    "metatarsal3": 1137,
+    "metatarsal5": 308,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.896Z",
+    "calcaneus": 997,
+    "metatarsal1": 39,
+    "metatarsal3": 1752,
+    "metatarsal5": 452,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.946Z",
+    "calcaneus": 433,
+    "metatarsal1": 117,
+    "metatarsal3": 2243,
+    "metatarsal5": 761,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:15.996Z",
+    "calcaneus": 246,
+    "metatarsal1": 357,
+    "metatarsal3": 2773,
+    "metatarsal5": 1115,
+    "activity": "walking",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.046Z",
+    "calcaneus": 156,
+    "metatarsal1": 396,
+    "metatarsal3": 1637,
+    "metatarsal5": 723,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.096Z",
+    "calcaneus": 124,
+    "metatarsal1": 676,
+    "metatarsal3": 1618,
+    "metatarsal5": 800,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.146Z",
+    "calcaneus": 136,
+    "metatarsal1": 1090,
+    "metatarsal3": 1316,
+    "metatarsal5": 902,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.196Z",
+    "calcaneus": 15,
+    "metatarsal1": 1403,
+    "metatarsal3": 1063,
+    "metatarsal5": 757,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.246Z",
+    "calcaneus": 16,
+    "metatarsal1": 1431,
+    "metatarsal3": 769,
+    "metatarsal5": 624,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.296Z",
+    "calcaneus": 6,
+    "metatarsal1": 1331,
+    "metatarsal3": 513,
+    "metatarsal5": 385,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.346Z",
+    "calcaneus": 38,
+    "metatarsal1": 963,
+    "metatarsal3": 318,
+    "metatarsal5": 351,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.396Z",
+    "calcaneus": 93,
+    "metatarsal1": 599,
+    "metatarsal3": 188,
+    "metatarsal5": 148,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.446Z",
+    "calcaneus": 40,
+    "metatarsal1": 326,
+    "metatarsal3": 149,
+    "metatarsal5": 90,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.496Z",
+    "calcaneus": 130,
+    "metatarsal1": 131,
+    "metatarsal3": 146,
+    "metatarsal5": 55,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.546Z",
+    "calcaneus": 133,
+    "metatarsal1": 87,
+    "metatarsal3": 120,
+    "metatarsal5": 105,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.596Z",
+    "calcaneus": 105,
+    "metatarsal1": 134,
+    "metatarsal3": 74,
+    "metatarsal5": 129,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.646Z",
+    "calcaneus": 590,
+    "metatarsal1": 52,
+    "metatarsal3": 98,
+    "metatarsal5": 129,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.696Z",
+    "calcaneus": 959,
+    "metatarsal1": 80,
+    "metatarsal3": 120,
+    "metatarsal5": 37,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.746Z",
+    "calcaneus": 1412,
+    "metatarsal1": 122,
+    "metatarsal3": 159,
+    "metatarsal5": 75,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.796Z",
+    "calcaneus": 1781,
+    "metatarsal1": 78,
+    "metatarsal3": 107,
+    "metatarsal5": 39,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.846Z",
+    "calcaneus": 1768,
+    "metatarsal1": 12,
+    "metatarsal3": 214,
+    "metatarsal5": 95,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.896Z",
+    "calcaneus": 1433,
+    "metatarsal1": 119,
+    "metatarsal3": 369,
+    "metatarsal5": 90,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.946Z",
+    "calcaneus": 958,
+    "metatarsal1": 61,
+    "metatarsal3": 683,
+    "metatarsal5": 205,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:16.996Z",
+    "calcaneus": 554,
+    "metatarsal1": 112,
+    "metatarsal3": 1013,
+    "metatarsal5": 265,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.046Z",
+    "calcaneus": 276,
+    "metatarsal1": 159,
+    "metatarsal3": 1293,
+    "metatarsal5": 467,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.096Z",
+    "calcaneus": 121,
+    "metatarsal1": 201,
+    "metatarsal3": 1512,
+    "metatarsal5": 662,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.146Z",
+    "calcaneus": 132,
+    "metatarsal1": 409,
+    "metatarsal3": 1655,
+    "metatarsal5": 812,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.196Z",
+    "calcaneus": 32,
+    "metatarsal1": 638,
+    "metatarsal3": 1553,
+    "metatarsal5": 846,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.246Z",
+    "calcaneus": 34,
+    "metatarsal1": 992,
+    "metatarsal3": 1346,
+    "metatarsal5": 862,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.296Z",
+    "calcaneus": 121,
+    "metatarsal1": 1302,
+    "metatarsal3": 1095,
+    "metatarsal5": 728,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.346Z",
+    "calcaneus": 32,
+    "metatarsal1": 1512,
+    "metatarsal3": 673,
+    "metatarsal5": 560,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.396Z",
+    "calcaneus": 14,
+    "metatarsal1": 1342,
+    "metatarsal3": 406,
+    "metatarsal5": 491,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.446Z",
+    "calcaneus": 128,
+    "metatarsal1": 927,
+    "metatarsal3": 306,
+    "metatarsal5": 285,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.496Z",
+    "calcaneus": 123,
+    "metatarsal1": 537,
+    "metatarsal3": 136,
+    "metatarsal5": 228,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.546Z",
+    "calcaneus": 60,
+    "metatarsal1": 351,
+    "metatarsal3": 65,
+    "metatarsal5": 107,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.596Z",
+    "calcaneus": 80,
+    "metatarsal1": 212,
+    "metatarsal3": 51,
+    "metatarsal5": 122,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.646Z",
+    "calcaneus": 71,
+    "metatarsal1": 117,
+    "metatarsal3": 53,
+    "metatarsal5": 50,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.696Z",
+    "calcaneus": 36,
+    "metatarsal1": 34,
+    "metatarsal3": 75,
+    "metatarsal5": 80,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.746Z",
+    "calcaneus": 10,
+    "metatarsal1": 3,
+    "metatarsal3": 74,
+    "metatarsal5": 86,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.796Z",
+    "calcaneus": 1046,
+    "metatarsal1": 140,
+    "metatarsal3": 36,
+    "metatarsal5": 121,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.846Z",
+    "calcaneus": 1423,
+    "metatarsal1": 99,
+    "metatarsal3": 56,
+    "metatarsal5": 97,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.896Z",
+    "calcaneus": 1743,
+    "metatarsal1": 33,
+    "metatarsal3": 120,
+    "metatarsal5": 34,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.946Z",
+    "calcaneus": 1750,
+    "metatarsal1": 22,
+    "metatarsal3": 261,
+    "metatarsal5": 84,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:17.996Z",
+    "calcaneus": 1429,
+    "metatarsal1": 5,
+    "metatarsal3": 328,
+    "metatarsal5": 90,
+    "activity": "transition",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.046Z",
+    "calcaneus": 1894,
+    "metatarsal1": 1005,
+    "metatarsal3": 1549,
+    "metatarsal5": 674,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.096Z",
+    "calcaneus": 1877,
+    "metatarsal1": 1066,
+    "metatarsal3": 1587,
+    "metatarsal5": 684,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.146Z",
+    "calcaneus": 1902,
+    "metatarsal1": 1044,
+    "metatarsal3": 1529,
+    "metatarsal5": 740,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.196Z",
+    "calcaneus": 1954,
+    "metatarsal1": 1032,
+    "metatarsal3": 1571,
+    "metatarsal5": 652,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.246Z",
+    "calcaneus": 1956,
+    "metatarsal1": 1080,
+    "metatarsal3": 1517,
+    "metatarsal5": 674,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.296Z",
+    "calcaneus": 1940,
+    "metatarsal1": 977,
+    "metatarsal3": 1503,
+    "metatarsal5": 662,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.346Z",
+    "calcaneus": 1886,
+    "metatarsal1": 1084,
+    "metatarsal3": 1533,
+    "metatarsal5": 746,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.396Z",
+    "calcaneus": 1857,
+    "metatarsal1": 1079,
+    "metatarsal3": 1548,
+    "metatarsal5": 669,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.446Z",
+    "calcaneus": 1929,
+    "metatarsal1": 1000,
+    "metatarsal3": 1589,
+    "metatarsal5": 740,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.496Z",
+    "calcaneus": 1874,
+    "metatarsal1": 1034,
+    "metatarsal3": 1499,
+    "metatarsal5": 700,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.546Z",
+    "calcaneus": 1967,
+    "metatarsal1": 1047,
+    "metatarsal3": 1540,
+    "metatarsal5": 687,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.596Z",
+    "calcaneus": 1989,
+    "metatarsal1": 1087,
+    "metatarsal3": 1557,
+    "metatarsal5": 715,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.646Z",
+    "calcaneus": 1902,
+    "metatarsal1": 982,
+    "metatarsal3": 1495,
+    "metatarsal5": 706,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.696Z",
+    "calcaneus": 1901,
+    "metatarsal1": 973,
+    "metatarsal3": 1484,
+    "metatarsal5": 697,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.746Z",
+    "calcaneus": 1857,
+    "metatarsal1": 1015,
+    "metatarsal3": 1570,
+    "metatarsal5": 750,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.796Z",
+    "calcaneus": 1874,
+    "metatarsal1": 1009,
+    "metatarsal3": 1469,
+    "metatarsal5": 677,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.846Z",
+    "calcaneus": 1959,
+    "metatarsal1": 1027,
+    "metatarsal3": 1457,
+    "metatarsal5": 648,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.896Z",
+    "calcaneus": 1981,
+    "metatarsal1": 981,
+    "metatarsal3": 1578,
+    "metatarsal5": 713,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.946Z",
+    "calcaneus": 1944,
+    "metatarsal1": 958,
+    "metatarsal3": 1453,
+    "metatarsal5": 685,
+    "activity": "standing",
+    "battery_pct": null
+  },
+  {
+    "timestamp": "2026-07-11T00:00:18.996Z",
+    "calcaneus": 1935,
+    "metatarsal1": 951,
+    "metatarsal3": 1579,
+    "metatarsal5": 724,
+    "activity": "standing",
+    "battery_pct": null
+  }
+]
