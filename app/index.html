@@ -139,6 +139,15 @@
   .note.warn{border-color:var(--warn); background:rgba(245,158,11,.08);}
   .note.bad{border-color:var(--bad); background:rgba(239,68,68,.07);}
 
+  .actbar{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  .actbar button{border:2px solid var(--border); background:var(--surface-2); color:var(--text);
+    padding:16px 10px; border-radius:12px; font-family:inherit; font-size:15px; font-weight:700;
+    cursor:pointer; transition:.12s;}
+  .actbar button:hover{border-color:#cbd5e1;}
+  .actbar button.active{background:var(--navy); border-color:var(--navy); color:#fff;}
+  .actnow{display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border-radius:999px;
+    font-size:14px; font-weight:700; background:#f1f5f9; color:var(--muted);}
+  .actnow.on{background:rgba(13,148,136,.14); color:var(--brand-d);}
   .calin{width:70px; padding:5px 6px; border:1px solid var(--border); border-radius:7px;
     font-family:inherit; font-size:12.5px; text-align:right; font-variant-numeric:tabular-nums;}
   .calin:focus{outline:2px solid var(--brand); outline-offset:-1px;}
@@ -283,6 +292,19 @@
 
       <!-- ============ LIVE ============ -->
       <section class="section" id="sec-live">
+        <div class="card" style="margin-bottom:18px;">
+          <div class="bd" style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:14px 20px;">
+            <button class="btn dark" id="tareBtn">Zero sensors</button>
+            <div style="flex:1 1 240px;">
+              <div style="font-size:12.5px;" id="tareStatus"></div>
+              <div style="font-size:12px; color:var(--muted); margin-top:3px;">
+                Lift your foot off the insole, or take the insole out of the shoe.
+                <b>Do NOT tare while standing</b> &mdash; standing is a loaded state, not zero.
+              </div>
+            </div>
+            <button class="btn ghost" id="tareClear">Clear zero</button>
+          </div>
+        </div>
         <div class="gauge-grid" id="gaugeGrid"></div>
         <div class="row" style="margin-top:18px;">
           <div class="card" style="flex:1 1 320px;">
@@ -326,7 +348,7 @@
           </div>
         </div>
         <div class="card" style="margin-top:18px;">
-          <div class="hd"><h3>Total load</h3><p>Sum of all four sensors</p></div>
+          <div class="hd"><h3>Relative loading index</h3><p>Sum of 4 discrete sites on one foot &mdash; not total foot force.</p></div>
           <div class="bd"><canvas id="totalChart" height="220"></canvas></div>
         </div>
       </section>
@@ -389,7 +411,7 @@
             </div>
           </div>
           <div class="bd">
-            <div class="stat-grid" style="grid-template-columns:repeat(4,1fr);">
+            <div class="stat-grid">
               <div class="stat"><div class="k">Buffer samples</div><div class="v" id="dBuffer">0</div></div>
               <div class="stat"><div class="k">Recording</div><div class="v" id="dRecording">No</div></div>
               <div class="stat"><div class="k">Recorded samples</div><div class="v" id="dRecorded">0</div></div>
@@ -397,6 +419,21 @@
             </div>
           </div>
         </div>
+        <div class="card" style="margin-top:18px;">
+          <div class="hd" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+            <div><h3>Activity label</h3><p>Stamps every sample from now until changed</p></div>
+            <span class="actnow" id="actNow">No label selected</span>
+          </div>
+          <div class="bd">
+            <div class="actbar" id="actBar">
+              <button data-act="standing">Standing</button>
+              <button data-act="walking">Walking</button>
+              <button data-act="transition">Transition</button>
+            </div>
+            <div class="kvs" id="actDur" style="margin-top:12px;"></div>
+          </div>
+        </div>
+
         <div class="card" style="margin-top:18px;">
           <div class="hd"><h3>Recent samples</h3></div>
           <div class="bd">
@@ -484,7 +521,21 @@
                 <tbody id="mPerBody"></tbody>
               </table>
             </div>
+            <div id="mBaseSrc" style="font-size:12.5px; margin-bottom:10px;"></div>
+            <div style="font-size:12px; color:var(--muted); margin-top:10px;">Single foot instrumented; during standing this foot carries roughly half of body weight.</div>
             <div class="note warn" id="mSatNote" style="display:none;">Some samples hit the 4095 ceiling &mdash; those peaks are clipped and under-report true pressure. Lower the pull-down resistor on affected channels.</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px;">
+          <div class="hd"><h3>Per-state results</h3><p>Broken out by the labels marked during recording</p></div>
+          <div class="bd">
+            <div class="table-wrap" style="max-height:none;">
+              <table>
+                <thead><tr><th>State</th><th>Sensor</th><th>Mean</th><th>Peak</th><th>SD</th><th>Samples</th></tr></thead>
+                <tbody id="mStateBody"></tbody>
+              </table>
+            </div>
           </div>
         </div>
 
@@ -582,6 +633,20 @@ let riskThreshold = 3000;
 
 let recording = false, recBuffer = [], recStartT = 0;
 let linkStartWall = 0;      // when the current link (BLE or demo) began - for runtime testing
+
+/* ---- tare (zero offset) ---- */
+const TARE_KEY = 'dfu_tare_v1';
+const TARE_LOADED_MARGIN = 300;   // counts above zero that count as "loaded"
+let tare = null;                  // { offsets:[N], at:ISO, samples:n }
+let tareBuf = null;               // collecting while a tare is in progress
+
+/* ---- manual activity labelling ---- */
+const ACTIVITIES = ['standing','walking','transition'];
+let currentActivity = 'unknown';
+let activityDur = { standing:0, walking:0, transition:0, unknown:0 };
+
+/* wall-clock anchor so exported timestamps are real dates, not ms-since-boot */
+let wallAnchorDevice = null, wallAnchorWall = null;
 let activeSec = 'connect';
 let trendWindow = 30;              // seconds, 0 = all
 
@@ -676,7 +741,10 @@ function toggleDemo(){ if(demo) { stopDemo(); setConnState(); } else startDemo()
 function pushSample(t, v){
   const prev = samples[samples.length-1];
   const dt = prev ? clamp(t - prev.t, 0, 1000) : 50;   // ms
-  samples.push({ t, v });
+  if(wallAnchorDevice == null){ wallAnchorDevice = t; wallAnchorWall = Date.now(); }
+  if(tareBuf) tareBuf.push(v);
+  activityDur[currentActivity] = (activityDur[currentActivity] || 0) + dt/1000;
+  samples.push({ t, v, a: currentActivity });
   if(samples.length > MAX_SAMPLES) samples.shift();
   latest = v;
   totalCount++;
@@ -690,7 +758,7 @@ function pushSample(t, v){
   }
   stat.n++;
 
-  if(recording) recBuffer.push({ t, v });
+  if(recording) recBuffer.push({ t, v, a: currentActivity });
 
   const now = performance.now();
   lastPacketWall = now;
@@ -792,7 +860,7 @@ function buildStaticUI(){
   $('trendLegend').innerHTML = legHtml;
 
   // data table head
-  $('dataHead').innerHTML = `<th>Time (s)</th>` + SENSORS.map(s=>`<th>${s.label}</th>`).join('');
+  $('dataHead').innerHTML = `<th>Time (s)</th>` + SENSORS.map(s=>`<th>${s.label}</th>`).join('') + `<th>Activity</th>`;
 
   // footmap
   buildFootmap();
@@ -1029,8 +1097,9 @@ function renderData(){
   const t0 = samples.length ? samples[0].t : 0;
   $('dataBody').innerHTML = tail.map(d=>{
     return `<tr><td>${((d.t-t0)/1000).toFixed(2)}</td>` +
-      SENSORS.map((s,i)=>`<td>${fmt(d.v[i])}</td>`).join('') + `</tr>`;
-  }).join('') || `<tr><td colspan="${N+1}" style="text-align:center;color:#94a3b8;">No samples yet</td></tr>`;
+      SENSORS.map((s,i)=>`<td>${fmt(d.v[i])}</td>`).join('') +
+      `<td>${d.a || 'unknown'}</td></tr>`;
+  }).join('') || `<tr><td colspan="${N+2}" style="text-align:center;color:#94a3b8;">No samples yet</td></tr>`;
 }
 
 /* =========================================================================
@@ -1054,6 +1123,10 @@ function computeMetrics(){
   const med = [...dts].sort((a,b)=>a-b)[Math.floor(dts.length/2)] || 50;
   m.gaps = dts.filter(d => d > med * 2.5).length;
 
+  // baseline: prefer the MEASURED tare; only estimate when no tare exists
+  m.tared = !!tare;
+  m.baselineSource = tare ? 'measured (tared)' : 'estimated (5th percentile)';
+
   // per-sensor statistics
   m.per = SENSORS.map((s,i)=>{
     const v = samples.map(d => d.v[i]);
@@ -1062,12 +1135,13 @@ function computeMetrics(){
     const sd = Math.sqrt(v.reduce((a,b)=>a+(b-mean)*(b-mean),0) / n);
     return {
       label: s.label, pin: s.pin,
-      baseline: sorted[Math.floor(n*0.05)],
+      baseline: tare ? tare.offsets[i] : sorted[Math.floor(n*0.05)],
       peak: sorted[n-1],
       mean, sd,
       satPct: v.filter(x => x >= ADC_MAX).length / n * 100,
     };
   });
+  m.states = stateStats();
   m.anySat = m.per.some(p => p.satPct > 0);
 
   // step detection from the heel channel: count upward threshold crossings
@@ -1116,6 +1190,39 @@ function renderPaper(){
   ).join('') || `<tr><td colspan="6" style="text-align:center;color:#94a3b8;">No samples yet</td></tr>`;
   $('mSatNote').style.display = m.anySat ? 'block' : 'none';
 
+  const src = $('mBaseSrc');
+  if(src){
+    src.innerHTML = m.baselineSource
+      ? `Baseline source: <b>${m.baselineSource}</b>` +
+        (m.tared ? '' : ' &mdash; press <b>Zero sensors</b> on Live Monitor for a measured baseline.')
+      : '';
+    src.style.color = m.tared ? 'var(--brand-d)' : '#b45309';
+  }
+
+  // per-state results table
+  const st = m.states || {};
+  const keys = Object.keys(st);
+  const body = $('mStateBody');
+  if(body){
+    if(!keys.length){
+      body.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#94a3b8;">No labelled samples yet &mdash; mark Standing / Walking / Transition on the Data screen</td></tr>`;
+    }else{
+      body.innerHTML = keys.map(k=>{
+        const g = st[k];
+        return SENSORS.map((s,i)=>{
+          const q = g.per[i];
+          return `<tr>
+            <td>${i===0 ? `<b>${k}</b> <span style="color:#94a3b8;font-weight:400">${g.dur.toFixed(0)}s</span>` : ''}</td>
+            <td>${s.label}</td>
+            <td>${fmt(Math.round(q.mean))}</td>
+            <td>${fmt(Math.round(q.peak))}</td>
+            <td>${q.sd.toFixed(0)}</td>
+            <td>${i===0 ? fmt(g.n) : ''}</td></tr>`;
+        }).join('');
+      }).join('');
+    }
+  }
+
   $('mGait').innerHTML = m.steps != null ? `
     <div><span>Steps detected</span><b>${fmt(m.steps)}</b></div>
     <div><span>Cadence</span><b>${m.cadence.toFixed(0)} steps/min</b></div>
@@ -1150,7 +1257,7 @@ function loop(ts){
     if(activeSec==='live') renderLive();
     else if(activeSec==='trends') renderTrends();
     else if(activeSec==='analysis') renderAnalysis();
-    else if(activeSec==='data') renderData();
+    else if(activeSec==='data'){ renderData(); renderActivityUI(); }
     else if(activeSec==='paper') renderPaper();
     else if(activeSec==='calib') renderCalib();
   }
@@ -1162,51 +1269,61 @@ function loop(ts){
    ========================================================================= */
 function toggleRecord(){
   recording = !recording;
-  if(recording){ recBuffer = []; recStartT = performance.now(); }
+  if(recording){ recBuffer = []; recStartT = performance.now(); resetActivityDurations(); }
   $('recBtn').textContent = recording ? 'Stop recording' : 'Start recording';
   $('recBtn').className = recording ? 'btn danger' : 'btn dark';
   renderData();
 }
-function exportCSV(){
-  const src = recBuffer.length ? recBuffer : samples;
-  if(!src.length){ alert('No data to export yet. Connect or run Demo Mode first.'); return; }
-  const head = ['index','device_ms'].concat(SENSORS.map(s=>`${s.label.replace(' ','')}_${s.pin}`)).join(',');
-  const t0 = src[0].t;
-  const rows = src.map((d,idx)=> [idx, Math.round(d.t - t0)].concat(d.v).join(','));
-  const csv = head + '\n' + rows.join('\n');
-  const blob = new Blob([csv], {type:'text/csv'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `dfu_insole_${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.csv`;
-  a.click();
-  URL.revokeObjectURL(a.href);
+/* Public JSON schema field names, keyed by sensor. */
+const PUBLIC_FIELD = { heel:'calcaneus', bigToe:'metatarsal1', ball:'metatarsal3', littleToe:'metatarsal5' };
+
+function stamp(t){
+  if(wallAnchorWall == null) return new Date().toISOString();
+  return new Date(wallAnchorWall + (t - wallAnchorDevice)).toISOString();
 }
-// Export in the public /api/export.json schema (calcaneus, metatarsal1/3/5).
-function exportAnalysisJSON(){
-  const src = recBuffer.length ? recBuffer : samples;
-  if(!src.length){ alert('No data to export yet. Connect or run Demo Mode first.'); return; }
-  const idx = k => SENSORS.findIndex(s=>s.key===k);
-  const iHeel=idx('heel'), iBig=idx('bigToe'), iBall=idx('ball'), iLil=idx('littleToe');
-  const lastT = src[src.length-1].t, wallEnd = Date.now();
-  const out = src.map(d=>({
-    timestamp:   new Date(wallEnd - (lastT - d.t)).toISOString(),
-    calcaneus:   d.v[iHeel],   // A3 heel
-    metatarsal1: d.v[iBig],    // A2 big toe
-    metatarsal3: d.v[iBall],   // A1 ball
-    metatarsal5: d.v[iLil],    // A0 little toe
-    activity:    'unknown',
-    battery_pct: null
-  }));
-  const blob = new Blob([JSON.stringify(out, null, 2)], {type:'application/json'});
+function download(name, text, mime){
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `dfu_insole_${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.json`;
-  a.click();
-  URL.revokeObjectURL(a.href);
+  a.href = URL.createObjectURL(new Blob([text], {type:mime}));
+  a.download = name; a.click(); URL.revokeObjectURL(a.href);
+}
+function exportSource(){
+  const src = recBuffer.length ? recBuffer : samples;
+  if(!src.length){ alert('No data to export yet. Connect or run Demo Mode first.'); return null; }
+  return src;
+}
+
+function exportCSV(){
+  const src = exportSource(); if(!src) return;
+  const head = ['index','device_ms','timestamp']
+    .concat(SENSORS.map(s=>`${s.label.replace(' ','')}_${s.pin}`))
+    .concat(['activity','battery_pct']).join(',');
+  const t0 = src[0].t;
+  const rows = src.map((d,idx)=>
+    [idx, Math.round(d.t - t0), stamp(d.t)].concat(d.v).concat([d.a || 'unknown', '']).join(','));
+  download(`dfu_insole_${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.csv`,
+    head + '\n' + rows.join('\n'), 'text/csv');
+}
+
+
+// Export in the public /api/export.json schema (calcaneus, metatarsal1/3/5).
+/* Matches the public /api/export.json schema exactly. */
+function exportAnalysisJSON(){
+  const src = exportSource(); if(!src) return;
+  const out = src.map(d=>{
+    const row = { timestamp: stamp(d.t) };
+    SENSORS.forEach((s,i)=>{ row[PUBLIC_FIELD[s.key]] = d.v[i]; });
+    row.activity = d.a || 'unknown';     // real marked label, not assumed
+    row.battery_pct = null;              // not instrumented in this build
+    return row;
+  });
+  download(`dfu_insole_${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.json`,
+    JSON.stringify(out, null, 2), 'application/json');
 }
 function clearBuffer(){
   if(!confirm('Clear all buffered samples? Recorded (unexported) data will also be cleared.')) return;
   samples = []; recBuffer = []; totalCount = 0; rateWin = [];
+  resetActivityDurations();
+  wallAnchorDevice = null; wallAnchorWall = null;
   resetStats();
 }
 function resetStats(){
@@ -1227,7 +1344,16 @@ function copyMetricsSummary(){
   L.push('  measured rate      : ' + m.rateHz.toFixed(2) + ' Hz');
   L.push('  dropped gaps       : ' + m.gaps);
   L.push('');
+  L.push('ZERO OFFSET (tare)');
+  if(tare){
+    L.push('  measured ' + tare.at + '  (' + tare.samples + ' samples)');
+    SENSORS.forEach((s,i)=> L.push('  ' + s.label.padEnd(13) + s.pin.padEnd(6) + tare.offsets[i]));
+  }else{
+    L.push('  not set - baselines below are ESTIMATED, not measured');
+  }
+  L.push('');
   L.push('PER-SENSOR (raw ADC counts, 0-4095)');
+  L.push('  baseline source: ' + m.baselineSource);
   L.push('  sensor        pin   baseline   peak   mean    SD    saturated');
   m.per.forEach(p=>{
     L.push('  ' + p.label.padEnd(13) + p.pin.padEnd(6) +
@@ -1236,6 +1362,25 @@ function copyMetricsSummary(){
       String(Math.round(p.mean)).padEnd(8) +
       p.sd.toFixed(0).padEnd(6) + p.satPct.toFixed(1) + '%');
   });
+  L.push('');
+  L.push('PER-STATE RESULTS');
+  const st = m.states || {};
+  const skeys = Object.keys(st);
+  if(!skeys.length){
+    L.push('  no labelled samples - mark Standing / Walking / Transition while recording');
+  }else{
+    skeys.forEach(k=>{
+      const g = st[k];
+      L.push('  ' + k.toUpperCase() + '  (' + g.n + ' samples, ' + g.dur.toFixed(0) + ' s)');
+      L.push('    sensor        pin    mean    peak    SD');
+      SENSORS.forEach((s,i)=>{
+        const q = g.per[i];
+        L.push('    ' + s.label.padEnd(13) + s.pin.padEnd(7) +
+          String(Math.round(q.mean)).padEnd(8) +
+          String(Math.round(q.peak)).padEnd(8) + q.sd.toFixed(0));
+      });
+    });
+  }
   L.push('');
   L.push('GAIT');
   L.push('  steps detected     : ' + (m.steps != null ? m.steps : 'n/a'));
@@ -1251,10 +1396,126 @@ function copyMetricsSummary(){
   L.push('  risk logic         : fixed threshold, no trained model');
   L.push('  calibration        : none - raw relative counts');
   L.push('  battery telemetry  : not instrumented');
+  L.push('');
+  L.push('LIMITATIONS');
+  L.push('  - Single foot instrumented: no left-right asymmetry can be assessed.');
+  L.push('  - Four discrete sensing sites only; the summed value is a RELATIVE');
+  L.push('    loading index, not total foot force.');
+  L.push('  - Baseline was ' + (m.tared ? 'MEASURED (tared)' : 'ESTIMATED (5th percentile, no tare recorded)') + '.');
   const txt = L.join('\n');
   navigator.clipboard.writeText(txt)
     .then(()=>{ const b=$('copyMetrics'); const o=b.textContent; b.textContent='Copied'; setTimeout(()=>b.textContent=o,1400); })
     .catch(()=>{ alert(txt); });
+}
+
+/* =========================================================================
+   TARE (ZERO OFFSET)
+   Captures ~2 s of unloaded samples and stores the per-channel mean as that
+   sensor's true zero. This is a MEASURED baseline - the Paper Metrics page
+   prefers it over the inferred 5th-percentile estimate.
+   ========================================================================= */
+function zeroRef(i){ return tare ? tare.offsets[i] : 0; }
+
+function tareLoad(){
+  try{ const raw = localStorage.getItem(TARE_KEY); if(raw) tare = JSON.parse(raw); }catch(e){ tare = null; }
+}
+function tareSave(){
+  try{ tare ? localStorage.setItem(TARE_KEY, JSON.stringify(tare)) : localStorage.removeItem(TARE_KEY); }catch(e){}
+}
+
+function startTare(){
+  if(!(connected || demo)){ alert('Connect the insole (or start Demo Mode) before zeroing.'); return; }
+  const loaded = SENSORS.filter((s,i) => (latest[i]||0) > zeroRef(i) + TARE_LOADED_MARGIN);
+  if(loaded.length){
+    // Hard block - a tare taken under load is not a zero.
+    alert('Readings look loaded — the insole must be fully unweighted to zero it.\n\n' +
+      'Loaded channels: ' + loaded.map(s=>s.label).join(', '));
+    return;
+  }
+  tareBuf = [];
+  const btn = $('tareBtn'), label = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Zeroing…';
+  setTimeout(()=>{
+    const n = tareBuf ? tareBuf.length : 0;
+    btn.disabled = false; btn.textContent = label;
+    if(n < 3){ tareBuf = null; alert('Only ' + n + ' samples captured. Check the link and try again.'); return; }
+    tare = {
+      offsets: SENSORS.map((s,i)=> Math.round(tareBuf.reduce((a,r)=>a+(r[i]||0),0)/n)),
+      at: new Date().toISOString(),
+      samples: n,
+    };
+    tareBuf = null; tareSave(); renderTareUI();
+  }, 2000);
+}
+
+function clearTare(){
+  if(!tare) return;
+  if(!confirm('Clear the stored zero offsets?')) return;
+  tare = null; tareSave(); renderTareUI();
+}
+
+function renderTareUI(){
+  const el = $('tareStatus'); if(!el) return;
+  if(!tare){
+    el.innerHTML = '<span style="color:var(--muted);">No zero set &mdash; baselines will be estimated.</span>';
+  }else{
+    const when = new Date(tare.at);
+    el.innerHTML = '<b>Zeroed</b> ' + when.toLocaleString() + ' &middot; ' +
+      SENSORS.map((s,i)=>`${s.label} ${tare.offsets[i]}`).join(' &middot; ');
+  }
+  const cb = $('tareClear'); if(cb) cb.disabled = !tare;
+}
+
+/* =========================================================================
+   MANUAL ACTIVITY LABELLING
+   The wearer marks the state; every sample from then on carries that label.
+   Nothing is inferred - there is no classifier.
+   ========================================================================= */
+function setActivity(a){
+  currentActivity = a;
+  renderActivityUI();
+}
+function resetActivityDurations(){
+  activityDur = { standing:0, walking:0, transition:0, unknown:0 };
+}
+function renderActivityUI(){
+  const bar = $('actBar'); if(!bar) return;
+  bar.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.act === currentActivity));
+  const now = $('actNow');
+  if(now){
+    now.className = 'actnow' + (currentActivity !== 'unknown' ? ' on' : '');
+    now.textContent = currentActivity === 'unknown' ? 'No label selected' : currentActivity;
+  }
+  const d = $('actDur');
+  if(d){
+    d.innerHTML = ['standing','walking','transition','unknown'].map(k=>{
+      const sec = activityDur[k] || 0;
+      if(k === 'unknown' && sec < 0.5) return '';
+      return `<div><span>${k}</span><b>${sec.toFixed(1)} s</b></div>`;
+    }).join('');
+  }
+}
+
+/* per-state statistics - the Results table for the paper */
+function stateStats(){
+  const out = {};
+  ['standing','walking','transition','unknown'].forEach(st=>{
+    const rows = samples.filter(d => (d.a || 'unknown') === st);
+    if(!rows.length) return;
+    out[st] = {
+      n: rows.length,
+      dur: activityDur[st] || 0,
+      per: SENSORS.map((s,i)=>{
+        let sum = 0, peak = 0;
+        for(const d of rows){ const x = d.v[i]; sum += x; if(x > peak) peak = x; }
+        const mean = sum / rows.length;
+        let ss = 0;
+        for(const d of rows){ const x = d.v[i] - mean; ss += x*x; }
+        return { mean, peak, sd: Math.sqrt(ss / rows.length) };
+      }),
+    };
+  });
+  return out;
 }
 
 /* =========================================================================
@@ -1507,6 +1768,12 @@ function init(){
   buildStaticUI();
   calLoad();
   buildCalUI();
+  tareLoad();
+  renderTareUI();
+  $('tareBtn').onclick = startTare;
+  $('tareClear').onclick = clearTare;
+  $('actBar').querySelectorAll('button').forEach(b => b.onclick = ()=> setActivity(b.dataset.act));
+  renderActivityUI();
   checkCompat();
   setConnState();
   renderData();
