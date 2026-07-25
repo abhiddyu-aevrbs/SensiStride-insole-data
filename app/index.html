@@ -205,7 +205,8 @@
       <button class="navbtn" data-sec="trends"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg>Trends</button>
       <button class="navbtn" data-sec="analysis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12Z"/><path d="M12 2v10h10"/></svg>Analysis</button>
       <button class="navbtn" data-sec="data"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>Data &amp; Export</button>
-      <button class="navbtn" data-sec="help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>Help &amp; Troubleshooting</button>
+      <button class="navbtn" data-sec="paper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>Paper Metrics</button>
+      <button class="navbtn" data-sec="help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>Help</button>
     </nav>
     <div class="conn-mini">
       <span class="dot" id="miniDot"></span>
@@ -233,23 +234,17 @@
       <section class="section active" id="sec-connect">
         <div class="grid" style="grid-template-columns:1.4fr 1fr;">
           <div class="card">
-            <div class="hd"><h3>Pair the DFU Insole</h3><p>Connect over Bluetooth Low Energy in three steps</p></div>
+            <div class="hd"><h3>Pair the insole</h3><p>Power it on, then connect</p></div>
             <div class="bd">
               <div id="compat"></div>
-              <ol style="padding-left:20px; margin:10px 0 0; font-size:14px; color:#334155;">
-                <li style="margin-bottom:9px;">Power the insole (USB or battery). The onboard LED shows it is running. The firmware advertises as <b>DFU Insole</b>.</li>
-                <li style="margin-bottom:9px;">Use <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop, or Chrome on Android. Web Bluetooth is not available in Safari or Firefox.</li>
-                <li style="margin-bottom:9px;">Click <b>Connect</b> below, choose <b>DFU Insole</b> in the browser dialog, and pair.</li>
-              </ol>
-              <div style="display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;">
+              <div style="display:flex; gap:12px; margin-top:14px; flex-wrap:wrap;">
                 <button class="btn primary" id="connBtn2">Connect to Insole</button>
                 <button class="btn ghost" id="demoBtn2">Try Demo Mode</button>
               </div>
-              <div class="note" style="margin-top:18px;">No hardware handy? <b>Demo Mode</b> streams a realistic simulated walking gait so you can explore every screen and rehearse your presentation.</div>
             </div>
           </div>
           <div class="card">
-            <div class="hd"><h3>Connection</h3><p>Live link status</p></div>
+            <div class="hd"><h3>Connection</h3></div>
             <div class="bd">
               <div class="kvs" style="font-size:13.5px;">
                 <div><span>Status</span><b id="cStatus">Disconnected</b></div>
@@ -265,11 +260,11 @@
         </div>
 
         <div class="card" style="margin-top:18px;">
-          <div class="hd"><h3>Sensor map</h3><p>These four channels are what the firmware reads and what every chart in this app displays</p></div>
+          <div class="hd"><h3>Sensor map</h3></div>
           <div class="bd">
             <div class="table-wrap" style="max-height:none;">
               <table>
-                <thead><tr><th>Sensor</th><th>Arduino pin</th><th>Foot location</th><th>Packet bytes</th><th>Series color</th></tr></thead>
+                <thead><tr><th>Sensor</th><th>Pin</th><th>Foot location</th><th></th></tr></thead>
                 <tbody id="sensorMapBody"></tbody>
               </table>
             </div>
@@ -282,7 +277,7 @@
         <div class="gauge-grid" id="gaugeGrid"></div>
         <div class="row" style="margin-top:18px;">
           <div class="card" style="flex:1 1 320px;">
-            <div class="hd"><h3>Plantar pressure map</h3><p>Live pressure at each sensor (plantar view)</p></div>
+            <div class="hd"><h3>Pressure map</h3></div>
             <div class="bd">
               <div class="footmap-wrap">
                 <div id="footmap"></div>
@@ -295,7 +290,7 @@
             </div>
           </div>
           <div class="card" style="flex:2 1 460px;">
-            <div class="hd"><h3>Live signal</h3><p>Last 15 seconds &middot; raw ADC counts (0&ndash;4095)</p></div>
+            <div class="hd"><h3>Live signal</h3><p>Last 15 s &middot; ADC counts</p></div>
             <div class="bd">
               <canvas id="liveChart" height="300"></canvas>
               <div class="legend" id="liveLegend"></div>
@@ -308,7 +303,7 @@
       <section class="section" id="sec-trends">
         <div class="card">
           <div class="hd" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
-            <div><h3>Pressure trends</h3><p>Time-series history of all four sensors</p></div>
+            <div><h3>Pressure trends</h3></div>
             <div class="seg" id="windowSeg">
               <button data-w="15">15s</button>
               <button data-w="30" class="active">30s</button>
@@ -322,7 +317,7 @@
           </div>
         </div>
         <div class="card" style="margin-top:18px;">
-          <div class="hd"><h3>Total load</h3><p>Sum of all four sensors over time &mdash; a proxy for total weight-bearing through the foot</p></div>
+          <div class="hd"><h3>Total load</h3><p>Sum of all four sensors</p></div>
           <div class="bd"><canvas id="totalChart" height="220"></canvas></div>
         </div>
       </section>
@@ -331,7 +326,7 @@
       <section class="section" id="sec-analysis">
         <div class="card">
           <div class="hd" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
-            <div><h3>Session statistics</h3><p>Computed live across the current session</p></div>
+            <div><h3>Session statistics</h3></div>
             <button class="btn ghost" id="resetStats">Reset statistics</button>
           </div>
           <div class="bd">
@@ -346,11 +341,11 @@
 
         <div class="row" style="margin-top:18px;">
           <div class="card" style="flex:1 1 360px;">
-            <div class="hd"><h3>Load distribution</h3><p>Share of total current pressure per zone</p></div>
+            <div class="hd"><h3>Load distribution</h3></div>
             <div class="bd" id="distBars"></div>
           </div>
           <div class="card" style="flex:1 1 360px;">
-            <div class="hd"><h3>Balance metrics</h3><p>Regional pressure ratios (current)</p></div>
+            <div class="hd"><h3>Balance metrics</h3></div>
             <div class="bd">
               <div id="balanceRows"></div>
             </div>
@@ -359,7 +354,7 @@
 
         <div class="card" style="margin-top:18px;">
           <div class="hd" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
-            <div><h3>DFU pressure-risk indicator</h3><p>Flags zones with sustained high plantar pressure &mdash; the primary mechanical driver of diabetic foot ulcers</p></div>
+            <div><h3>Pressure-risk indicator</h3><p>Zones with sustained high pressure</p></div>
             <label class="toggle" style="align-self:center;">
               Limit:&nbsp;<input type="range" id="thresh" min="1000" max="4000" step="100" value="3000" style="display:inline-block; width:120px;">
               <b id="threshVal" style="color:var(--text); min-width:42px; display:inline-block;">3000</b>
@@ -376,7 +371,7 @@
       <section class="section" id="sec-data">
         <div class="card">
           <div class="hd" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
-            <div><h3>Recording &amp; export</h3><p>Capture a session and export to CSV for your Python pipeline</p></div>
+            <div><h3>Recording &amp; export</h3></div>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
               <button class="btn dark" id="recBtn">Start recording</button>
               <button class="btn ghost" id="exportBtn">Export CSV</button>
@@ -394,7 +389,7 @@
           </div>
         </div>
         <div class="card" style="margin-top:18px;">
-          <div class="hd"><h3>Recent samples</h3><p>Most recent readings &middot; raw ADC counts</p></div>
+          <div class="hd"><h3>Recent samples</h3></div>
           <div class="bd">
             <div class="table-wrap">
               <table>
@@ -406,65 +401,83 @@
         </div>
       </section>
 
+      <!-- ============ PAPER METRICS ============ -->
+      <section class="section" id="sec-paper">
+        <div class="card">
+          <div class="hd" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+            <div><h3>Acquisition</h3><p>Measured from the current buffer &mdash; use these in the Methods section</p></div>
+            <button class="btn ghost" id="copyMetrics">Copy summary</button>
+          </div>
+          <div class="bd">
+            <div class="stat-grid">
+              <div class="stat"><div class="k">Measured rate</div><div class="v" id="mRate">&mdash;</div></div>
+              <div class="stat"><div class="k">Session length</div><div class="v" id="mDur">&mdash;</div></div>
+              <div class="stat"><div class="k">Samples</div><div class="v" id="mN">0</div></div>
+              <div class="stat"><div class="k">Dropped gaps</div><div class="v" id="mGaps">0</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px;">
+          <div class="hd"><h3>Per-sensor statistics</h3><p>Baseline = 5th percentile (resting). SD separates standing from walking.</p></div>
+          <div class="bd">
+            <div class="table-wrap" style="max-height:none;">
+              <table>
+                <thead><tr><th>Sensor</th><th>Baseline</th><th>Peak</th><th>Mean</th><th>SD</th><th>Saturated</th></tr></thead>
+                <tbody id="mPerBody"></tbody>
+              </table>
+            </div>
+            <div class="note warn" id="mSatNote" style="display:none;">Some samples hit the 4095 ceiling &mdash; those peaks are clipped and under-report true pressure. Lower the pull-down resistor on affected channels.</div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:18px;">
+          <div class="card" style="flex:1 1 340px;">
+            <div class="hd"><h3>Gait</h3><p>Steps detected from heel loading cycles</p></div>
+            <div class="bd"><div class="kvs" style="font-size:13.5px;" id="mGait"></div></div>
+          </div>
+          <div class="card" style="flex:1 1 340px;">
+            <div class="hd"><h3>Battery runtime test</h3><p>Leave running on battery to measure real endurance</p></div>
+            <div class="bd"><div class="kvs" style="font-size:13.5px;" id="mRuntime"></div></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px;">
+          <div class="hd"><h3>Fixed system specs</h3></div>
+          <div class="bd">
+            <div class="table-wrap" style="max-height:none;">
+              <table><tbody id="mSpecBody"></tbody></table>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ============ HELP ============ -->
       <section class="section" id="sec-help">
         <div class="card">
-          <div class="hd"><h3>Help &amp; Troubleshooting</h3><p>Everything from flashing to pairing to fixing bad data</p></div>
+          <div class="hd"><h3>Setup &amp; troubleshooting</h3></div>
           <div class="bd help">
-            <h4>1. Requirements</h4>
+            <h4>Requirements</h4>
             <ul>
-              <li>A browser that supports <b>Web Bluetooth</b>: desktop Chrome or Edge, or Chrome on Android.</li>
-              <li><b>Safari, iOS, and Firefox are not supported</b> &mdash; they do not implement Web Bluetooth.</li>
-              <li>The page must run in a <b>secure context</b>: open it from <code>https://</code>, from <code>http://localhost</code>, or directly as a local file in Chrome.</li>
+              <li>Chrome or Edge on desktop, or Chrome on Android. <b>iPhone is not supported</b> (no Web Bluetooth on iOS).</li>
+              <li>Page must be served over HTTPS or <code>localhost</code>.</li>
+              <li>Firmware: install the <b>ArduinoBLE</b> library, flash <code>DFU_Insole_BLE.ino</code>. It advertises as <b>DFU Insole</b>.</li>
             </ul>
 
-            <h4>2. Running this app</h4>
-            <p>Easiest reliable method &mdash; serve it on localhost from the project folder:</p>
-            <ul>
-              <li>Open a terminal in the <code>webapp</code> folder.</li>
-              <li>Run <code>python3 -m http.server 8000</code></li>
-              <li>Open <code>http://localhost:8000</code> in Chrome.</li>
-            </ul>
-            <p>For the competition you can also host the single <code>index.html</code> on GitHub Pages (HTTPS) and open it on any supported laptop.</p>
-
-            <h4>3. Flashing the firmware</h4>
-            <ul>
-              <li>In the Arduino IDE: <b>Tools &rarr; Manage Libraries</b>, install <b>ArduinoBLE</b> (by Arduino).</li>
-              <li>Select board <b>Arduino Nano 33 BLE</b>, open <code>DFU_Insole_BLE.ino</code>, and upload.</li>
-              <li>After upload the board advertises as <b>DFU Insole</b>. The Serial Monitor (115200) mirrors readings for debugging.</li>
-            </ul>
-
-            <h4>4. Pairing problems</h4>
+            <h4>Common problems</h4>
             <table style="margin-top:6px;">
               <thead><tr><th>Symptom</th><th>Fix</th></tr></thead>
               <tbody>
-                <tr><td style="white-space:normal;">Connect button does nothing / "Bluetooth not available"</td><td style="white-space:normal; text-align:left;">You are not on Chrome/Edge in a secure context. Switch browser or serve over localhost (see step 2).</td></tr>
-                <tr><td style="white-space:normal;">"DFU Insole" not in the device list</td><td style="white-space:normal; text-align:left;">Confirm the board is powered and was flashed with the BLE firmware. Make sure no other phone/laptop is already connected to it (BLE allows one central at a time).</td></tr>
-                <tr><td style="white-space:normal;">Pairs, then immediately disconnects</td><td style="white-space:normal; text-align:left;">Low battery or USB brown-out. Try a different cable / fresh charge. Move closer to the laptop.</td></tr>
-                <tr><td style="white-space:normal;">Connected but no data / all zeros</td><td style="white-space:normal; text-align:left;">Sensors unplugged or not pressed. Press a sensor and watch the Live Monitor. If still flat, run the continuity tests in the build guide (Phase 7).</td></tr>
+                <tr><td style="white-space:normal;">Connect does nothing</td><td style="white-space:normal; text-align:left;">Wrong browser or not on HTTPS/localhost.</td></tr>
+                <tr><td style="white-space:normal;">Device not listed</td><td style="white-space:normal; text-align:left;">Not powered, or another device is already connected (BLE allows one at a time).</td></tr>
+                <tr><td style="white-space:normal;">Connects then drops</td><td style="white-space:normal; text-align:left;">Low battery or loose USB. Recharge, move closer.</td></tr>
+                <tr><td style="white-space:normal;">Two sensors read the same</td><td style="white-space:normal; text-align:left;">Solder bridge. Re-run the build guide continuity tests.</td></tr>
+                <tr><td style="white-space:normal;">Channel stuck at 4095 / 0</td><td style="white-space:normal; text-align:left;">4095 = shorted to 3.3V or missing pull-down. 0 = open sensor or shorted to ground.</td></tr>
+                <tr><td style="white-space:normal;">Wrong sensor responds</td><td style="white-space:normal; text-align:left;">Cable in wrong port. Ball&rarr;A1, Big Toe&rarr;A2, Heel&rarr;A3, Little Toe&rarr;A0.</td></tr>
               </tbody>
             </table>
 
-            <h4>5. Data looks wrong</h4>
-            <table style="margin-top:6px;">
-              <thead><tr><th>Symptom</th><th>Likely cause</th></tr></thead>
-              <tbody>
-                <tr><td style="white-space:normal;">Two or more sensors read identical values</td><td style="white-space:normal; text-align:left;">A solder bridge or the old bare-rail short ties channels together. Re-run build-guide Phase 7, Test 1.</td></tr>
-                <tr><td style="white-space:normal;">A channel is stuck at ~4095 or ~0</td><td style="white-space:normal; text-align:left;">Stuck high = signal shorted to 3.3V or no pull-down. Stuck low = open sensor or signal shorted to ground. Check that port&rsquo;s wiring.</td></tr>
-                <tr><td style="white-space:normal;">Values jump around wildly</td><td style="white-space:normal; text-align:left;">Loose FSR joint or floating wire. Reflow the FSR tabs; confirm the pull-down resistor is seated.</td></tr>
-                <tr><td style="white-space:normal;">Wrong sensor lights up when pressed</td><td style="white-space:normal; text-align:left;">A cord is in the wrong port. Match plug labels to ports: Ball&rarr;A1, Big Toe&rarr;A2, Heel&rarr;A3, Little Toe&rarr;A0.</td></tr>
-              </tbody>
-            </table>
-
-            <h4>6. Calibration tips</h4>
-            <ul>
-              <li>FSRs are not precision sensors &mdash; treat the values as <b>relative</b> pressure, not absolute force.</li>
-              <li>With no load, a channel should sit near 0&ndash;100 counts. Standing should drive the loaded zones well above the limit line.</li>
-              <li>Set the <b>Limit</b> slider on the Analysis tab just above resting noise so the risk flags are meaningful for your subject.</li>
-            </ul>
-
-            <h4>7. Safety &amp; scope</h4>
-            <div class="note bad" style="margin-top:6px;">This is a <b>student research prototype</b> for measuring plantar pressure patterns. It is <b>not a medical device</b> and must not be used for diagnosis or treatment decisions.</div>
+            <div class="note bad" style="margin-top:16px;">Student research prototype. <b>Not a medical device</b> &mdash; not for diagnosis or treatment.</div>
           </div>
         </div>
       </section>
@@ -511,6 +524,7 @@ let stat = { peak:new Array(N).fill(0), sum:new Array(N).fill(0), n:0,
 let riskThreshold = 3000;
 
 let recording = false, recBuffer = [], recStartT = 0;
+let linkStartWall = 0;      // when the current link (BLE or demo) began - for runtime testing
 let activeSec = 'connect';
 let trendWindow = 30;              // seconds, 0 = all
 
@@ -547,6 +561,7 @@ async function connect(){
     characteristic.addEventListener('characteristicvaluechanged', onData);
     stopDemo();
     connected = true; demo = false;
+    linkStartWall = performance.now();
     setConnState();
   }catch(e){
     console.error(e);
@@ -559,6 +574,7 @@ function disconnect(){
 }
 function onDisconnected(){
   connected = false; characteristic = null; server = null;
+  linkStartWall = 0;
   setConnState();
 }
 function onData(ev){
@@ -573,7 +589,7 @@ function onData(ev){
    ========================================================================= */
 function startDemo(){
   if(connected) disconnect();
-  demo = true; setConnState();
+  demo = true; linkStartWall = performance.now(); setConnState();
   let phase = Math.random();
   demoTimer = setInterval(()=>{
     phase = (phase + 0.045) % 1;          // one gait cycle ~1.1 s
@@ -663,6 +679,7 @@ function switchSection(sec){
   document.querySelectorAll('#nav .navbtn').forEach(b=>b.classList.toggle('active', b.dataset.sec===sec));
   document.querySelectorAll('#mobilenav button').forEach(b=>b.classList.toggle('active', b.dataset.sec===sec));
   const titles = {connect:['Connect','Pair your insole over Bluetooth to begin'],
+    paper:['Paper Metrics','Measured values for the write-up'],
     live:['Live Monitor','Real-time plantar pressure'],
     trends:['Trends','Pressure history over time'],
     analysis:['Analysis','Session statistics and DFU risk'],
@@ -678,14 +695,29 @@ function switchSection(sec){
 function buildStaticUI(){
   // mobile nav mirrors sidebar
   const mnav = $('mobilenav');
-  [['connect','Connect'],['live','Live'],['trends','Trends'],['analysis','Analysis'],['data','Data'],['help','Help']]
+  [['connect','Connect'],['live','Live'],['trends','Trends'],['analysis','Analysis'],['data','Data'],['paper','Metrics'],['help','Help']]
     .forEach(([sec,lab],i)=>{ const b=document.createElement('button'); b.textContent=lab; b.dataset.sec=sec; if(i===0)b.classList.add('active'); b.onclick=()=>switchSection(sec); mnav.appendChild(b); });
 
   // sensor map table
   $('sensorMapBody').innerHTML = SENSORS.map(s=>`
     <tr><td><b>${s.label}</b></td><td>${s.pin}</td><td style="text-align:right;">${s.loc}</td>
-    <td>${s.off}–${s.off+1}</td>
     <td style="text-align:right;"><span style="display:inline-block;width:26px;height:8px;border-radius:4px;background:${s.color};vertical-align:middle;"></span></td></tr>`).join('');
+
+  // fixed system specs for the paper
+  $('mSpecBody').innerHTML = [
+    ['Microcontroller','Arduino Nano 33 BLE Rev2 (nRF52840)'],
+    ['Sensors','4 x force-sensitive resistor (FSR)'],
+    ['Sensor sites','1st, 3rd, 5th metatarsal heads + calcaneus'],
+    ['ADC','12-bit, 0-4095 counts, 3.3 V reference'],
+    ['Target sample rate','20 Hz (50 ms loop)'],
+    ['Per-channel conditioning','throwaway read + 2 ms settle before each read'],
+    ['Pull-down resistors','1.5 k ohm per channel'],
+    ['Wireless link','Bluetooth Low Energy (GATT notify, 12-byte packet)'],
+    ['Battery','3.7 V 350 mAh LiPo via 5 V boost converter'],
+    ['Component cost','approx. $58 per insole'],
+    ['Risk logic','fixed configurable threshold (no trained model)'],
+    ['Calibration','none applied - raw relative ADC counts'],
+  ].map(r=>`<tr><td>${r[0]}</td><td style="text-align:right;">${r[1]}</td></tr>`).join('');
 
   // gauges
   $('gaugeGrid').innerHTML = SENSORS.map(s=>`
@@ -713,14 +745,14 @@ function buildStaticUI(){
 /* =========================================================================
    FOOT MAP (SVG)
    ========================================================================= */
-// LEFT foot, plantar view: big toe on the left, arch on the left.
-// Forefoot sensors sit in an arch across the ball of the foot (metatarsal
-// heads); heel at the rear. Each has a label so it reads as a foot diagram.
+// LEFT foot, viewed from ABOVE (the way the insole sits in the shoe).
+// From above, a left foot's big toe is on the RIGHT of the image and the
+// arch is on the right. Forefoot sensors sit in an arch across the ball.
 const FOOT_POS = {  // positions within 240 x 480 viewBox
-  bigToe:    {x:74,  y:150, r:22, ly:186},
-  ball:      {x:124, y:138, r:24, ly:176},
-  littleToe: {x:170, y:156, r:18, ly:190},
-  heel:      {x:118, y:394, r:30, ly:439},
+  littleToe: {x:70,  y:156, r:18, ly:190},
+  ball:      {x:116, y:138, r:24, ly:176},
+  bigToe:    {x:166, y:150, r:22, ly:186},
+  heel:      {x:122, y:394, r:30, ly:439},
 };
 function buildFootmap(){
   const toes = `
@@ -735,17 +767,21 @@ function buildFootmap(){
       <text id="ft-${s.key}" x="${p.x}" y="${p.y+4}" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">0</text>
       <text x="${p.x}" y="${p.ly}" text-anchor="middle" font-size="10.5" font-weight="600" fill="#475569">${s.label}</text>`;
   }).join('');
+  // Outline + toes are mirrored so the big toe and arch sit on the right,
+  // which is a LEFT foot seen from above. Dots/labels stay upright.
   $('footmap').innerHTML = `
   <svg viewBox="0 0 240 480" width="210" style="max-width:100%;">
-    ${toes}
-    <path d="M50 120 C48 96 70 86 110 86 C150 86 196 96 196 140
-             C198 170 188 196 176 220 C168 244 166 262 168 286
-             C170 320 176 348 172 380 C168 422 150 452 116 452
-             C86 452 70 422 70 384 C70 350 78 322 76 290
-             C74 262 62 244 56 220 C46 196 40 168 50 120 Z"
-          fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <g transform="translate(240,0) scale(-1,1)">
+      ${toes}
+      <path d="M50 120 C48 96 70 86 110 86 C150 86 196 96 196 140
+               C198 170 188 196 176 220 C168 244 166 262 168 286
+               C170 320 176 348 172 380 C168 422 150 452 116 452
+               C86 452 70 422 70 384 C70 350 78 322 76 290
+               C74 262 62 244 56 220 C46 196 40 168 50 120 Z"
+            fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    </g>
     ${dots}
-    <text x="120" y="474" text-anchor="middle" font-size="11" fill="#94a3b8">Plantar view &middot; left foot</text>
+    <text x="120" y="474" text-anchor="middle" font-size="11" fill="#94a3b8">Left foot &middot; viewed from above</text>
   </svg>`;
 }
 
@@ -936,6 +972,104 @@ function renderData(){
   }).join('') || `<tr><td colspan="${N+1}" style="text-align:center;color:#94a3b8;">No samples yet</td></tr>`;
 }
 
+/* =========================================================================
+   PAPER METRICS  -  measured values for the write-up.
+   Everything here is computed from the actual sample buffer. Fields that the
+   hardware does not measure (battery voltage) are reported as unavailable
+   rather than guessed.
+   ========================================================================= */
+function computeMetrics(){
+  const n = samples.length;
+  const m = { n };
+  if(n < 2) return m;
+
+  const t0 = samples[0].t, t1 = samples[n-1].t;
+  m.durationS = (t1 - t0) / 1000;
+  m.rateHz = m.durationS > 0 ? (n - 1) / m.durationS : 0;
+
+  // dropped packets: intervals more than 2.5x the median spacing
+  const dts = [];
+  for(let i=1;i<n;i++) dts.push(samples[i].t - samples[i-1].t);
+  const med = [...dts].sort((a,b)=>a-b)[Math.floor(dts.length/2)] || 50;
+  m.gaps = dts.filter(d => d > med * 2.5).length;
+
+  // per-sensor statistics
+  m.per = SENSORS.map((s,i)=>{
+    const v = samples.map(d => d.v[i]);
+    const sorted = [...v].sort((a,b)=>a-b);
+    const mean = v.reduce((a,b)=>a+b,0) / n;
+    const sd = Math.sqrt(v.reduce((a,b)=>a+(b-mean)*(b-mean),0) / n);
+    return {
+      label: s.label, pin: s.pin,
+      baseline: sorted[Math.floor(n*0.05)],
+      peak: sorted[n-1],
+      mean, sd,
+      satPct: v.filter(x => x >= ADC_MAX).length / n * 100,
+    };
+  });
+  m.anySat = m.per.some(p => p.satPct > 0);
+
+  // step detection from the heel channel: count upward threshold crossings
+  const hi = SENSORS.findIndex(s => s.key === 'heel');
+  if(hi >= 0){
+    const h = m.per[hi];
+    const thr = h.baseline + (h.peak - h.baseline) * 0.4;
+    let steps = 0, above = false;
+    for(let i=0;i<n;i++){
+      const val = samples[i].v[hi];
+      if(!above && val > thr){ above = true; steps++; }
+      else if(above && val < thr * 0.85){ above = false; }
+    }
+    m.steps = steps;
+    m.cadence = m.durationS > 0 ? steps / (m.durationS/60) : 0;
+  }
+
+  // regional load split (session means)
+  const mi = k => m.per[SENSORS.findIndex(s=>s.key===k)].mean;
+  const fore = mi('bigToe') + mi('ball') + mi('littleToe');
+  const rear = mi('heel');
+  m.forePct = (fore + rear) > 0 ? fore/(fore+rear)*100 : 0;
+  return m;
+}
+
+function fmtDur(sec){
+  if(!isFinite(sec) || sec <= 0) return '0s';
+  const h = Math.floor(sec/3600), mn = Math.floor((sec%3600)/60), s = Math.floor(sec%60);
+  return h ? `${h}h ${mn}m` : (mn ? `${mn}m ${s}s` : `${s}s`);
+}
+
+function renderPaper(){
+  const m = computeMetrics();
+  $('mN').textContent = fmt(m.n || 0);
+  $('mRate').textContent = m.rateHz ? m.rateHz.toFixed(1) + ' Hz' : '—';
+  $('mDur').textContent = m.durationS ? fmtDur(m.durationS) : '—';
+  $('mGaps').textContent = m.gaps != null ? fmt(m.gaps) : '0';
+
+  $('mPerBody').innerHTML = (m.per || []).map(p=>`
+    <tr><td><b>${p.label}</b> <span style="color:#94a3b8;font-weight:400">${p.pin}</span></td>
+      <td>${fmt(Math.round(p.baseline))}</td>
+      <td>${fmt(Math.round(p.peak))}</td>
+      <td>${fmt(Math.round(p.mean))}</td>
+      <td>${p.sd.toFixed(0)}</td>
+      <td style="${p.satPct>0?'color:#b45309;font-weight:700':''}">${p.satPct.toFixed(1)}%</td></tr>`
+  ).join('') || `<tr><td colspan="6" style="text-align:center;color:#94a3b8;">No samples yet</td></tr>`;
+  $('mSatNote').style.display = m.anySat ? 'block' : 'none';
+
+  $('mGait').innerHTML = m.steps != null ? `
+    <div><span>Steps detected</span><b>${fmt(m.steps)}</b></div>
+    <div><span>Cadence</span><b>${m.cadence.toFixed(0)} steps/min</b></div>
+    <div><span>Forefoot load share</span><b>${m.forePct.toFixed(0)}%</b></div>
+    <div><span>Rearfoot load share</span><b>${(100-m.forePct).toFixed(0)}%</b></div>`
+    : '<div style="color:#94a3b8;">No samples yet</div>';
+
+  const up = linkStartWall ? (performance.now() - linkStartWall)/1000 : 0;
+  $('mRuntime').innerHTML = `
+    <div><span>Link uptime</span><b>${fmtDur(up)}</b></div>
+    <div><span>Power source</span><b>${connected ? 'Device' : (demo ? 'Demo (n/a)' : '—')}</b></div>
+    <div><span>Battery telemetry</span><b>Not instrumented</b></div>
+    <div style="color:#94a3b8;font-size:12px;padding-top:6px;">Run on battery until it disconnects; uptime is the measured runtime.</div>`;
+}
+
 /* connection live fields */
 function renderConn(){
   $('cSamples').textContent = fmt(totalCount);
@@ -956,6 +1090,7 @@ function loop(ts){
     else if(activeSec==='trends') renderTrends();
     else if(activeSec==='analysis') renderAnalysis();
     else if(activeSec==='data') renderData();
+    else if(activeSec==='paper') renderPaper();
   }
   requestAnimationFrame(loop);
 }
@@ -1016,6 +1151,50 @@ function resetStats(){
   stat = { peak:new Array(N).fill(0), sum:new Array(N).fill(0), n:0, over:new Array(N).fill(0), pti:new Array(N).fill(0) };
 }
 
+/* Copy a plain-text metrics summary for pasting into the paper. */
+function copyMetricsSummary(){
+  const m = computeMetrics();
+  if(!m.n || m.n < 2){ alert('No data yet. Connect the insole (or run Demo Mode) and record a session first.'); return; }
+  const L = [];
+  L.push('DFU INSOLE - MEASURED SESSION METRICS');
+  L.push('generated ' + new Date().toISOString());
+  L.push('');
+  L.push('ACQUISITION');
+  L.push('  samples            : ' + m.n);
+  L.push('  session length     : ' + m.durationS.toFixed(1) + ' s');
+  L.push('  measured rate      : ' + m.rateHz.toFixed(2) + ' Hz');
+  L.push('  dropped gaps       : ' + m.gaps);
+  L.push('');
+  L.push('PER-SENSOR (raw ADC counts, 0-4095)');
+  L.push('  sensor        pin   baseline   peak   mean    SD    saturated');
+  m.per.forEach(p=>{
+    L.push('  ' + p.label.padEnd(13) + p.pin.padEnd(6) +
+      String(Math.round(p.baseline)).padEnd(11) +
+      String(Math.round(p.peak)).padEnd(7) +
+      String(Math.round(p.mean)).padEnd(8) +
+      p.sd.toFixed(0).padEnd(6) + p.satPct.toFixed(1) + '%');
+  });
+  L.push('');
+  L.push('GAIT');
+  L.push('  steps detected     : ' + (m.steps != null ? m.steps : 'n/a'));
+  L.push('  cadence            : ' + (m.cadence != null ? m.cadence.toFixed(0) + ' steps/min' : 'n/a'));
+  L.push('  forefoot / rearfoot: ' + m.forePct.toFixed(0) + '% / ' + (100-m.forePct).toFixed(0) + '%');
+  L.push('');
+  L.push('SYSTEM (fixed)');
+  L.push('  MCU                : Arduino Nano 33 BLE Rev2 (nRF52840)');
+  L.push('  ADC                : 12-bit, 3.3 V ref');
+  L.push('  target rate        : 20 Hz');
+  L.push('  pull-down          : 1.5 k ohm per channel');
+  L.push('  component cost     : ~$58 per insole');
+  L.push('  risk logic         : fixed threshold, no trained model');
+  L.push('  calibration        : none - raw relative counts');
+  L.push('  battery telemetry  : not instrumented');
+  const txt = L.join('\n');
+  navigator.clipboard.writeText(txt)
+    .then(()=>{ const b=$('copyMetrics'); const o=b.textContent; b.textContent='Copied'; setTimeout(()=>b.textContent=o,1400); })
+    .catch(()=>{ alert(txt); });
+}
+
 /* =========================================================================
    COMPAT BANNER
    ========================================================================= */
@@ -1051,6 +1230,7 @@ function init(){
 
   $('thresh').oninput = e=>{ riskThreshold = +e.target.value; $('threshVal').textContent = riskThreshold; };
   $('resetStats').onclick = resetStats;
+  $('copyMetrics').onclick = copyMetricsSummary;
   $('recBtn').onclick = toggleRecord;
   $('exportBtn').onclick = exportCSV;
   $('exportJsonBtn').onclick = exportAnalysisJSON;
