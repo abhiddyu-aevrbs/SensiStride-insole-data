@@ -139,6 +139,14 @@
   .note.warn{border-color:var(--warn); background:rgba(245,158,11,.08);}
   .note.bad{border-color:var(--bad); background:rgba(239,68,68,.07);}
 
+  .calin{width:70px; padding:5px 6px; border:1px solid var(--border); border-radius:7px;
+    font-family:inherit; font-size:12.5px; text-align:right; font-variant-numeric:tabular-nums;}
+  .calin:focus{outline:2px solid var(--brand); outline-offset:-1px;}
+  .capbtn{border:0; background:var(--navy); color:#fff; border-radius:7px; padding:5px 10px;
+    font-size:11.5px; font-weight:600; cursor:pointer; font-family:inherit;}
+  .capbtn:hover{background:var(--navy-2);}
+  .bigread{font-size:34px; font-weight:800; font-variant-numeric:tabular-nums; line-height:1.1;}
+  .fitbox{background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:14px 16px;}
   .seg{display:inline-flex; background:#f1f5f9; border-radius:10px; padding:3px; gap:2px;}
   .seg button{border:0; background:transparent; padding:7px 14px; border-radius:8px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer;}
   .seg button.active{background:#fff; color:var(--text); box-shadow:var(--shadow);}
@@ -205,6 +213,7 @@
       <button class="navbtn" data-sec="trends"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg>Trends</button>
       <button class="navbtn" data-sec="analysis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12Z"/><path d="M12 2v10h10"/></svg>Analysis</button>
       <button class="navbtn" data-sec="data"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>Data &amp; Export</button>
+      <button class="navbtn" data-sec="calib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M7 6v4"/><path d="M12 6v7"/><path d="M17 6v4"/><path d="M3 20h18"/></svg>Calibration</button>
       <button class="navbtn" data-sec="paper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>Paper Metrics</button>
       <button class="navbtn" data-sec="help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>Help</button>
     </nav>
@@ -398,6 +407,54 @@
               </table>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- ============ CALIBRATION ============ -->
+      <section class="section" id="sec-calib">
+        <div class="card">
+          <div class="hd"><h3>Weight calibration</h3><p>Apply known masses to one sensor at a time, then fit force to ADC counts</p></div>
+          <div class="bd">
+            <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+              <div class="seg" id="calSensorSeg"></div>
+              <div class="seg" id="calRunSeg">
+                <button data-run="0" class="active">Run 1</button>
+                <button data-run="1">Run 2</button>
+                <button data-run="2">Run 3</button>
+              </div>
+              <div class="spacer" style="flex:1 1 auto;"></div>
+              <label class="toggle"><input type="checkbox" id="calApply"><span class="tk"></span>Show newtons live</label>
+            </div>
+
+            <div class="row" style="margin-top:16px;">
+              <div class="fitbox" style="flex:1 1 200px;">
+                <div style="font-size:12px; color:var(--muted); font-weight:600;">Live reading &mdash; <span id="calLiveName">&mdash;</span></div>
+                <div class="bigread" id="calLiveVal">0</div>
+                <div style="font-size:11.5px; color:#94a3b8;">Wait ~5 s for it to settle, then Capture</div>
+              </div>
+              <div class="fitbox" style="flex:2 1 320px;">
+                <div style="font-size:12px; color:var(--muted); font-weight:600;">Fitted curve &nbsp; F = a &times; ADC<sup>b</sup></div>
+                <div id="calFitText" style="font-size:13.5px; margin-top:6px;">Enter at least 3 points to fit.</div>
+              </div>
+            </div>
+
+            <div class="table-wrap" style="max-height:none; margin-top:16px;">
+              <table>
+                <thead><tr><th>Mass (kg)</th><th>Force (N)</th><th>Run 1</th><th>Run 2</th><th>Run 3</th><th>Mean</th><th></th></tr></thead>
+                <tbody id="calBody"></tbody>
+              </table>
+            </div>
+
+            <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
+              <button class="btn ghost" id="calExport">Export calibration</button>
+              <button class="btn danger" id="calClear">Clear this sensor</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px;">
+          <div class="hd"><h3>Calibration curve</h3><p>Measured points and the fitted power law</p></div>
+          <div class="bd"><canvas id="calChart" height="300"></canvas></div>
         </div>
       </section>
 
@@ -680,6 +737,7 @@ function switchSection(sec){
   document.querySelectorAll('#mobilenav button').forEach(b=>b.classList.toggle('active', b.dataset.sec===sec));
   const titles = {connect:['Connect','Pair your insole over Bluetooth to begin'],
     paper:['Paper Metrics','Measured values for the write-up'],
+    calib:['Calibration','Convert ADC counts to force'],
     live:['Live Monitor','Real-time plantar pressure'],
     trends:['Trends','Pressure history over time'],
     analysis:['Analysis','Session statistics and DFU risk'],
@@ -695,7 +753,7 @@ function switchSection(sec){
 function buildStaticUI(){
   // mobile nav mirrors sidebar
   const mnav = $('mobilenav');
-  [['connect','Connect'],['live','Live'],['trends','Trends'],['analysis','Analysis'],['data','Data'],['paper','Metrics'],['help','Help']]
+  [['connect','Connect'],['live','Live'],['trends','Trends'],['analysis','Analysis'],['data','Data'],['calib','Calib'],['paper','Metrics'],['help','Help']]
     .forEach(([sec,lab],i)=>{ const b=document.createElement('button'); b.textContent=lab; b.dataset.sec=sec; if(i===0)b.classList.add('active'); b.onclick=()=>switchSection(sec); mnav.appendChild(b); });
 
   // sensor map table
@@ -724,7 +782,7 @@ function buildStaticUI(){
     <div class="gauge">
       <div class="lab"><span class="swatch" style="background:${s.color}"></span>${s.label}</div>
       <div class="val" id="g-${s.key}">0</div>
-      <div class="pin">${s.pin} &middot; ${s.loc}</div>
+      <div class="pin"><span id="gf-${s.key}"></span>${s.pin} &middot; ${s.loc}</div>
       <div class="bar"><span id="gb-${s.key}" style="width:0%;background:${s.color}"></span></div>
     </div>`).join('');
 
@@ -882,6 +940,9 @@ function renderLive(){
     const s = SENSORS[i], val = latest[i]||0, pct = clamp(val/ADC_MAX*100,0,100);
     const g=$('g-'+s.key); if(g) g.textContent = fmt(val);
     const gb=$('gb-'+s.key); if(gb){ gb.style.width = pct+'%'; gb.style.background = heatColor(val/ADC_MAX); }
+    const gf=$('gf-'+s.key);
+    if(gf){ const nw = calApplied ? adcToNewtons(s.key, val) : null;
+      gf.innerHTML = nw != null ? `<b style="color:var(--text)">${nw.toFixed(1)} N</b> &middot; ` : ''; }
     const fc=$('fc-'+s.key), ft=$('ft-'+s.key);
     if(fc){ fc.setAttribute('fill', val>40 ? heatColor(val/ADC_MAX) : '#cbd5e1'); }
     if(ft){ ft.textContent = val; }
@@ -1091,6 +1152,7 @@ function loop(ts){
     else if(activeSec==='analysis') renderAnalysis();
     else if(activeSec==='data') renderData();
     else if(activeSec==='paper') renderPaper();
+    else if(activeSec==='calib') renderCalib();
   }
   requestAnimationFrame(loop);
 }
@@ -1196,6 +1258,237 @@ function copyMetricsSummary(){
 }
 
 /* =========================================================================
+   WEIGHT CALIBRATION
+   Applies known masses to a sensor and fits a power law  F = a * ADC^b
+   (FSR response is non-linear, so a straight line is the wrong model).
+   Saturated points (ADC at the 4095 ceiling) are excluded from the fit
+   because their true force is unknown.
+   ========================================================================= */
+const CAL_KEY = 'dfu_calib_v1';
+const DEFAULT_MASSES = [0, 0.5, 1, 2, 3, 5, 7, 10];
+const G = 9.81;
+
+let calib = {};              // { sensorKey: { rows:[{mass, runs:[a,b,c]}], fit } }
+let calSensor = SENSORS[0].key;
+let calRun = 0;
+let calApplied = false;
+
+function calBlank(){
+  return { rows: DEFAULT_MASSES.map(m => ({ mass: m, runs: [null,null,null] })), fit: null };
+}
+function calLoad(){
+  try{
+    const raw = localStorage.getItem(CAL_KEY);
+    if(raw) calib = JSON.parse(raw);
+  }catch(e){ calib = {}; }
+  SENSORS.forEach(s => { if(!calib[s.key]) calib[s.key] = calBlank(); });
+}
+function calSave(){
+  try{ localStorage.setItem(CAL_KEY, JSON.stringify(calib)); }catch(e){}
+}
+function rowMean(r){
+  const v = r.runs.filter(x => x != null && isFinite(x));
+  return v.length ? v.reduce((a,b)=>a+b,0) / v.length : null;
+}
+
+/* Least squares on ln(F) = ln(a) + b*ln(ADC); R^2 reported in linear force space. */
+function fitPowerLaw(pts){
+  const use = pts.filter(p => p.adc > 0 && p.force > 0 && p.adc < ADC_MAX);
+  const excluded = pts.length - use.length;
+  if(use.length < 3) return { ok:false, n:use.length, excluded };
+  const xs = use.map(p => Math.log(p.adc));
+  const ys = use.map(p => Math.log(p.force));
+  const n = use.length;
+  const mx = xs.reduce((a,b)=>a+b,0)/n, my = ys.reduce((a,b)=>a+b,0)/n;
+  let num = 0, den = 0;
+  for(let i=0;i<n;i++){ num += (xs[i]-mx)*(ys[i]-my); den += (xs[i]-mx)*(xs[i]-mx); }
+  if(den === 0) return { ok:false, n, excluded };
+  const b = num/den, a = Math.exp(my - b*mx);
+  const fm = use.reduce((s,p)=>s+p.force,0)/n;
+  let ssRes = 0, ssTot = 0;
+  use.forEach(p=>{
+    const pred = a * Math.pow(p.adc, b);
+    ssRes += (p.force - pred)*(p.force - pred);
+    ssTot += (p.force - fm)*(p.force - fm);
+  });
+  return { ok:true, a, b, r2: ssTot > 0 ? 1 - ssRes/ssTot : 0, n, excluded };
+}
+
+function calPoints(key){
+  return calib[key].rows.map(r=>({ adc: rowMean(r), force: r.mass * G }))
+    .filter(p => p.adc != null);
+}
+function calRecompute(key){
+  const f = fitPowerLaw(calPoints(key));
+  calib[key].fit = f.ok ? { a:f.a, b:f.b, r2:f.r2, n:f.n } : null;
+  calib[key]._diag = f;
+  calSave();
+}
+function adcToNewtons(key, adc){
+  const f = calib[key] && calib[key].fit;
+  if(!f || adc <= 0) return null;
+  return f.a * Math.pow(adc, f.b);
+}
+
+function buildCalUI(){
+  $('calSensorSeg').innerHTML = SENSORS.map((s,i)=>
+    `<button data-key="${s.key}" class="${i===0?'active':''}">${s.label}</button>`).join('');
+  $('calSensorSeg').querySelectorAll('button').forEach(b=>{
+    b.onclick = ()=>{ calSensor = b.dataset.key;
+      $('calSensorSeg').querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
+      renderCalTable(); };
+  });
+  $('calRunSeg').querySelectorAll('button').forEach(b=>{
+    b.onclick = ()=>{ calRun = +b.dataset.run;
+      $('calRunSeg').querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b)); };
+  });
+  $('calApply').onchange = e => { calApplied = e.target.checked; };
+  $('calExport').onclick = calExport;
+  $('calClear').onclick = ()=>{
+    if(!confirm('Clear all calibration data for ' + sensorLabel(calSensor) + '?')) return;
+    calib[calSensor] = calBlank(); calSave(); renderCalTable();
+  };
+  renderCalTable();
+}
+function sensorLabel(key){ const s = SENSORS.find(x=>x.key===key); return s ? s.label : key; }
+
+function renderCalTable(){
+  const c = calib[calSensor];
+  $('calBody').innerHTML = c.rows.map((r,ri)=>{
+    const mean = rowMean(r);
+    const sat = mean != null && mean >= ADC_MAX;
+    return `<tr>
+      <td><input class="calin" type="number" step="0.1" min="0" value="${r.mass}" data-ri="${ri}" data-f="mass"></td>
+      <td>${(r.mass*G).toFixed(1)}</td>
+      ${[0,1,2].map(k=>`<td><input class="calin" type="number" min="0" max="4095"
+          value="${r.runs[k] != null ? r.runs[k] : ''}" data-ri="${ri}" data-f="run" data-k="${k}"></td>`).join('')}
+      <td style="${sat?'color:#b45309;font-weight:700':''}">${mean != null ? Math.round(mean) : '&mdash;'}${sat?' ⚠':''}</td>
+      <td><button class="capbtn" data-ri="${ri}">Capture</button></td>
+    </tr>`;
+  }).join('');
+
+  $('calBody').querySelectorAll('input').forEach(inp=>{
+    inp.onchange = ()=>{
+      const ri = +inp.dataset.ri;
+      if(inp.dataset.f === 'mass') calib[calSensor].rows[ri].mass = parseFloat(inp.value) || 0;
+      else {
+        const v = inp.value === '' ? null : clamp(parseInt(inp.value,10) || 0, 0, ADC_MAX);
+        calib[calSensor].rows[ri].runs[+inp.dataset.k] = v;
+      }
+      calRecompute(calSensor); renderCalTable();
+    };
+  });
+  $('calBody').querySelectorAll('.capbtn').forEach(b=>{
+    b.onclick = ()=>{
+      const idx = SENSORS.findIndex(s=>s.key===calSensor);
+      calib[calSensor].rows[+b.dataset.ri].runs[calRun] = latest[idx] || 0;
+      calRecompute(calSensor); renderCalTable();
+    };
+  });
+
+  calRecompute(calSensor);
+  renderCalFit();
+}
+
+function renderCalFit(){
+  const d = calib[calSensor]._diag || {};
+  const f = calib[calSensor].fit;
+  let html;
+  if(f){
+    html = `<b style="font-size:15px;">F = ${f.a.toExponential(3)} &times; ADC<sup>${f.b.toFixed(3)}</sup></b>
+      <div class="kvs" style="margin-top:6px;">
+        <div><span>R&sup2;</span><b>${f.r2.toFixed(4)}</b></div>
+        <div><span>Points used</span><b>${f.n}</b></div>
+        ${d.excluded ? `<div><span>Excluded (zero or saturated)</span><b>${d.excluded}</b></div>` : ''}
+      </div>`;
+    if(f.r2 < 0.9) html += `<div style="color:#b45309;font-size:12.5px;margin-top:6px;">R&sup2; is low &mdash; re-check contact point and repeat the runs.</div>`;
+  }else{
+    html = `<span style="color:var(--muted);">Need at least 3 non-zero, unsaturated points. Currently ${d.n||0}.</span>`;
+  }
+  $('calFitText').innerHTML = html;
+  drawCalChart();
+}
+
+function drawCalChart(){
+  const cv = $('calChart');
+  const prepared = prepCanvas(cv);
+  if(!prepared) return;
+  const { ctx, w, h } = prepared;
+  const pad = { l:52, r:16, t:14, b:34 };
+  const cw = w-pad.l-pad.r, ch = h-pad.t-pad.b;
+  const pts = calPoints(calSensor);
+  const f = calib[calSensor].fit;
+  const maxF = Math.max(10, ...pts.map(p=>p.force));
+  const X = a => pad.l + (a/ADC_MAX)*cw;
+  const Y = v => pad.t + ch - (v/maxF)*ch;
+
+  ctx.strokeStyle='#eef2f6'; ctx.fillStyle='#94a3b8'; ctx.lineWidth=1;
+  ctx.font='11px -apple-system,Segoe UI,Roboto,sans-serif';
+  ctx.textAlign='right'; ctx.textBaseline='middle';
+  for(let i=0;i<=4;i++){
+    const v = maxF*i/4, py = Y(v);
+    ctx.beginPath(); ctx.moveTo(pad.l,py); ctx.lineTo(w-pad.r,py); ctx.stroke();
+    ctx.fillText(v.toFixed(0), pad.l-8, py);
+  }
+  ctx.textAlign='center'; ctx.textBaseline='top';
+  for(let i=0;i<=4;i++){
+    const a = ADC_MAX*i/4;
+    ctx.fillText(a.toFixed(0), X(a), h-pad.b+6);
+  }
+  ctx.fillStyle='#64748b'; ctx.textAlign='center';
+  ctx.fillText('ADC counts', pad.l+cw/2, h-12);
+  ctx.save(); ctx.translate(14, pad.t+ch/2); ctx.rotate(-Math.PI/2);
+  ctx.textBaseline='middle'; ctx.fillText('Force (N)', 0, 0); ctx.restore();
+
+  if(f){
+    ctx.strokeStyle = SENSORS.find(s=>s.key===calSensor).color;
+    ctx.lineWidth = 2; ctx.beginPath();
+    let started = false;
+    for(let a=1; a<=ADC_MAX; a+=20){
+      const v = f.a*Math.pow(a,f.b);
+      if(v > maxF*1.15) continue;
+      const px=X(a), py=Y(v);
+      if(!started){ ctx.moveTo(px,py); started=true; } else ctx.lineTo(px,py);
+    }
+    ctx.stroke();
+  }
+  pts.forEach(p=>{
+    const sat = p.adc >= ADC_MAX;
+    ctx.fillStyle = sat ? '#b45309' : '#0f2540';
+    ctx.beginPath(); ctx.arc(X(p.adc), Y(p.force), 4.5, 0, Math.PI*2); ctx.fill();
+  });
+  if(!pts.length){
+    ctx.fillStyle='#cbd5e1'; ctx.font='14px sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText('No calibration points yet', w/2, h/2);
+  }
+}
+
+function renderCalib(){
+  const idx = SENSORS.findIndex(s=>s.key===calSensor);
+  $('calLiveName').textContent = sensorLabel(calSensor);
+  const val = latest[idx] || 0;
+  const n = adcToNewtons(calSensor, val);
+  $('calLiveVal').innerHTML = fmt(val) + (n != null ? ` <span style="font-size:15px;color:var(--muted);font-weight:600;">&asymp; ${n.toFixed(1)} N</span>` : '');
+}
+
+function calExport(){
+  const out = { generated_at: new Date().toISOString(), model: 'F = a * ADC^b', gravity: G, sensors: {} };
+  SENSORS.forEach(s=>{
+    const c = calib[s.key];
+    out.sensors[s.key] = {
+      label: s.label, pin: s.pin,
+      fit: c.fit,
+      points: c.rows.map(r=>({ mass_kg:r.mass, force_N:+(r.mass*G).toFixed(2), runs:r.runs, mean_adc: rowMean(r) })),
+    };
+  });
+  const blob = new Blob([JSON.stringify(out,null,2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `dfu_calibration_${new Date().toISOString().slice(0,10)}.json`;
+  a.click(); URL.revokeObjectURL(a.href);
+}
+
+/* =========================================================================
    COMPAT BANNER
    ========================================================================= */
 function checkCompat(){
@@ -1212,6 +1505,8 @@ function checkCompat(){
    ========================================================================= */
 function init(){
   buildStaticUI();
+  calLoad();
+  buildCalUI();
   checkCompat();
   setConnState();
   renderData();
