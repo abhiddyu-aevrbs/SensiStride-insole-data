@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>DFU Smart Insole - Live Monitor</title>
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icon.svg" />
+<meta name="theme-color" content="#0f2540" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="DFU Insole" />
+<style>
+  :root{
+    --bg:#eef2f6; --surface:#ffffff; --surface-2:#f8fafc;
+    --text:#0f172a; --muted:#64748b; --border:#e2e8f0;
+    --navy:#0f2540; --navy-2:#16314f; --brand:#0d9488; --brand-d:#0f766e;
+    --good:#22c55e; --warn:#f59e0b; --bad:#ef4444; --info:#0ea5e9;
+    --s-bigToe:#10b981; --s-ball:#0ea5e9; --s-littleToe:#8b5cf6; --s-heel:#f59e0b;
+    --shadow:0 1px 2px rgba(15,37,64,.06),0 4px 16px rgba(15,37,64,.06);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg); color:var(--text); font-size:15px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .app{display:flex; min-height:100vh;}
+
+  /* ---------- Sidebar ---------- */
+  .sidebar{
+    width:240px; flex:0 0 240px; background:var(--navy); color:#cbd5e1;
+    display:flex; flex-direction:column; position:sticky; top:0; height:100vh;
+  }
+  .brand{display:flex; align-items:center; gap:11px; padding:20px 18px 18px;}
+  .brand .logo{
+    width:38px; height:38px; border-radius:10px; flex:0 0 38px;
+    background:linear-gradient(135deg,var(--brand),#0ea5e9);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .brand h1{font-size:15px; margin:0; color:#fff; font-weight:700; line-height:1.2;}
+  .brand p{font-size:11px; margin:0; color:#7e93ad; letter-spacing:.04em;}
+  nav{padding:8px; display:flex; flex-direction:column; gap:2px;}
+  .navbtn{
+    display:flex; align-items:center; gap:12px; width:100%; border:0; cursor:pointer;
+    background:transparent; color:#aebccd; padding:11px 13px; border-radius:9px;
+    font-size:14px; font-weight:500; text-align:left; transition:.15s;
+  }
+  .navbtn svg{width:18px; height:18px; flex:0 0 18px;}
+  .navbtn:hover{background:var(--navy-2); color:#fff;}
+  .navbtn.active{background:var(--brand); color:#fff;}
+  .conn-mini{display:flex; align-items:center; gap:8px; padding:12px 16px; border-top:1px solid #1d3a5c; font-size:12.5px;}
+  .dot{width:9px; height:9px; border-radius:50%; flex:0 0 9px; background:#64748b;}
+  .dot.on{background:var(--good); box-shadow:0 0 0 4px rgba(34,197,94,.18);}
+  .dot.demo{background:var(--info); box-shadow:0 0 0 4px rgba(14,165,233,.18);}
+
+  /* ---------- Main ---------- */
+  .main{flex:1 1 auto; min-width:0; display:flex; flex-direction:column;}
+  .topbar{
+    display:flex; align-items:center; gap:14px; padding:14px 26px;
+    background:var(--surface); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:20;
+  }
+  .topbar h2{font-size:18px; margin:0; font-weight:700;}
+  .topbar .sub{font-size:12.5px; color:var(--muted); margin-top:1px;}
+  .spacer{flex:1 1 auto;}
+  .content{padding:26px; max-width:1180px; width:100%; margin:0 auto;}
+
+  .pill{
+    display:inline-flex; align-items:center; gap:7px; padding:6px 13px; border-radius:999px;
+    font-size:12.5px; font-weight:600; background:#f1f5f9; color:var(--muted); white-space:nowrap;
+  }
+  .pill.on{background:rgba(34,197,94,.14); color:#15803d;}
+  .pill.demo{background:rgba(14,165,233,.14); color:#0369a1;}
+  .pill.off{background:#f1f5f9; color:var(--muted);}
+
+  button.btn{
+    border:0; cursor:pointer; font-family:inherit; font-weight:600; font-size:14px;
+    padding:10px 18px; border-radius:10px; transition:.15s; white-space:nowrap;
+  }
+  .btn.primary{background:var(--brand); color:#fff;}
+  .btn.primary:hover{background:var(--brand-d);}
+  .btn.dark{background:var(--navy); color:#fff;}
+  .btn.dark:hover{background:var(--navy-2);}
+  .btn.ghost{background:#f1f5f9; color:var(--text);}
+  .btn.ghost:hover{background:#e6ebf1;}
+  .btn.danger{background:rgba(239,68,68,.12); color:#b91c1c;}
+  .btn.danger:hover{background:rgba(239,68,68,.2);}
+  .btn:disabled{opacity:.45; cursor:not-allowed;}
+
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow);}
+  .card .hd{padding:16px 20px 0; }
+  .card .hd h3{margin:0; font-size:15px; font-weight:700;}
+  .card .hd p{margin:3px 0 0; font-size:12.5px; color:var(--muted);}
+  .card .bd{padding:18px 20px 20px;}
+
+  .grid{display:grid; gap:18px;}
+  .section{display:none;}
+  .section.active{display:block;}
+
+  /* gauges */
+  .gauge-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .gauge{background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:14px;}
+  .gauge .lab{display:flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600; color:var(--muted);}
+  .gauge .swatch{width:10px; height:10px; border-radius:3px; flex:0 0 10px;}
+  .gauge .val{font-size:26px; font-weight:800; margin:6px 0 2px; font-variant-numeric:tabular-nums;}
+  .gauge .pin{font-size:11px; color:#94a3b8;}
+  .bar{height:8px; border-radius:6px; background:#e8edf3; overflow:hidden; margin-top:10px;}
+  .bar > span{display:block; height:100%; border-radius:6px; transition:width .12s linear, background .2s;}
+
+  .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .stat{background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:14px 16px;}
+  .stat .k{font-size:12px; color:var(--muted); font-weight:600;}
+  .stat .v{font-size:22px; font-weight:800; margin-top:4px; font-variant-numeric:tabular-nums;}
+
+  table{width:100%; border-collapse:collapse; font-size:13px;}
+  th,td{padding:8px 10px; text-align:right; border-bottom:1px solid var(--border); font-variant-numeric:tabular-nums; white-space:nowrap;}
+  th:first-child,td:first-child{text-align:left;}
+  thead th{font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); background:var(--surface-2); position:sticky; top:0;}
+  .table-wrap{max-height:430px; overflow:auto; border:1px solid var(--border); border-radius:10px;}
+
+  canvas{display:block; width:100%;}
+
+  .legend{display:flex; flex-wrap:wrap; gap:14px; margin-top:6px;}
+  .legend .it{display:flex; align-items:center; gap:7px; font-size:12.5px; color:var(--muted);}
+  .legend .it span{width:14px; height:4px; border-radius:3px;}
+
+  .row{display:flex; gap:18px; flex-wrap:wrap;}
+  .row > *{min-width:0;}
+
+  .help h4{margin:22px 0 8px; font-size:15px;}
+  .help p, .help li{font-size:14px; color:#334155;}
+  .help ul,.help ol{padding-left:22px; margin:8px 0;}
+  .help code{background:#f1f5f9; padding:2px 6px; border-radius:5px; font-size:13px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+  .note{border-left:4px solid var(--info); background:rgba(14,165,233,.07); padding:12px 16px; border-radius:0 10px 10px 0; margin:14px 0; font-size:13.5px;}
+  .note.warn{border-color:var(--warn); background:rgba(245,158,11,.08);}
+  .note.bad{border-color:var(--bad); background:rgba(239,68,68,.07);}
+
+  .seg{display:inline-flex; background:#f1f5f9; border-radius:10px; padding:3px; gap:2px;}
+  .seg button{border:0; background:transparent; padding:7px 14px; border-radius:8px; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer;}
+  .seg button.active{background:#fff; color:var(--text); box-shadow:var(--shadow);}
+
+  .toggle{display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--muted); cursor:pointer; user-select:none;}
+  .toggle input{display:none;}
+  .toggle .tk{width:38px; height:22px; border-radius:999px; background:#cbd5e1; position:relative; transition:.15s;}
+  .toggle .tk::after{content:""; position:absolute; top:2px; left:2px; width:18px; height:18px; border-radius:50%; background:#fff; transition:.15s;}
+  .toggle input:checked + .tk{background:var(--brand);}
+  .toggle input:checked + .tk::after{transform:translateX(16px);}
+
+  .risk-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .risk{border-radius:12px; padding:14px 16px; border:1px solid var(--border);}
+  .risk .name{font-weight:700; font-size:14px;}
+  .risk .level{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-top:8px;}
+  .risk.low{background:rgba(34,197,94,.08); border-color:rgba(34,197,94,.3);}
+  .risk.low .level{color:#15803d;}
+  .risk.mod{background:rgba(245,158,11,.09); border-color:rgba(245,158,11,.35);}
+  .risk.mod .level{color:#b45309;}
+  .risk.high{background:rgba(239,68,68,.09); border-color:rgba(239,68,68,.35);}
+  .risk.high .level{color:#b91c1c;}
+
+  .kvs{font-size:12.5px; color:var(--muted); margin-top:8px;}
+  .kvs div{display:flex; justify-content:space-between; padding:2px 0;}
+  .kvs b{color:var(--text); font-weight:700; font-variant-numeric:tabular-nums;}
+
+  .empty{padding:40px 20px; text-align:center; color:var(--muted); font-size:14px;}
+  .footmap-wrap{display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap;}
+  .heat-legend{display:flex; flex-direction:column; gap:8px; font-size:12px; color:var(--muted);}
+  .heat-bar{width:16px; height:160px; border-radius:8px; background:linear-gradient(to top,#22c55e,#eab308,#f97316,#ef4444);}
+
+  @media(max-width:880px){
+    .sidebar{display:none;}
+    .gauge-grid,.stat-grid,.risk-grid{grid-template-columns:repeat(2,1fr);}
+    .content{padding:18px;}
+    .topbar{padding:12px 18px; flex-wrap:wrap; row-gap:10px;}
+    .topbar .spacer{flex-basis:100%; height:0;}
+    .grid{grid-template-columns:1fr !important;}
+  }
+  .mobilenav{display:none;}
+  @media(max-width:880px){
+    .mobilenav{display:flex; gap:6px; overflow-x:auto; padding:10px 14px; background:var(--navy);}
+    .mobilenav button{flex:0 0 auto; background:#16314f; color:#cbd5e1; border:0; padding:8px 13px; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer;}
+    .mobilenav button.active{background:var(--brand); color:#fff;}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c0-4 2-9 6-9 3 0 3 3 5 3s2-2 4-2"/><path d="M5 14c-1 3 0 5 3 5s4-2 7-2 4 1 4-2"/></svg>
+      </div>
+      <div>
+        <h1>DFU Insole</h1>
+        <p>SEFH / ISEF 2026</p>
+      </div>
+    </div>
+    <nav id="nav">
+      <button class="navbtn active" data-sec="connect"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 8.5 12 5l7 7-3.5 3.5"/><path d="m5 12 3.5 3.5L5 19"/><path d="M2 22 22 2"/></svg>Connect</button>
+      <button class="navbtn" data-sec="live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>Live Monitor</button>
+      <button class="navbtn" data-sec="trends"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg>Trends</button>
+      <button class="navbtn" data-sec="analysis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12Z"/><path d="M12 2v10h10"/></svg>Analysis</button>
+      <button class="navbtn" data-sec="data"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>Data &amp; Export</button>
+      <button class="navbtn" data-sec="help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>Help &amp; Troubleshooting</button>
+    </nav>
+    <div class="conn-mini">
+      <span class="dot" id="miniDot"></span>
+      <span id="miniText">Not connected</span>
+    </div>
+  </aside>
+
+  <!-- ===== Main ===== -->
+  <div class="main">
+    <div class="mobilenav" id="mobilenav"></div>
+    <div class="topbar">
+      <div>
+        <h2 id="pageTitle">Connect</h2>
+        <div class="sub" id="pageSub">Pair your insole over Bluetooth to begin</div>
+      </div>
+      <div class="spacer"></div>
+      <span class="pill off" id="statusPill"><span class="dot"></span><span id="statusText">Disconnected</span></span>
+      <button class="btn ghost" id="demoBtn">Demo Mode</button>
+      <button class="btn primary" id="connBtn">Connect</button>
+    </div>
+
+    <div class="content">
+
+      <!-- ============ CONNECT ============ -->
+      <section class="section active" id="sec-connect">
+        <div class="grid" style="grid-template-columns:1.4fr 1fr;">
+          <div class="card">
+            <div class="hd"><h3>Pair the DFU Insole</h3><p>Connect over Bluetooth Low Energy in three steps</p></div>
+            <div class="bd">
+              <div id="compat"></div>
+              <ol style="padding-left:20px; margin:10px 0 0; font-size:14px; color:#334155;">
+                <li style="margin-bottom:9px;">Power the insole (USB or battery). The onboard LED shows it is running. The firmware advertises as <b>DFU Insole</b>.</li>
+                <li style="margin-bottom:9px;">Use <b>Google Chrome</b> or <b>Microsoft Edge</b> on desktop, or Chrome on Android. Web Bluetooth is not available in Safari or Firefox.</li>
+                <li style="margin-bottom:9px;">Click <b>Connect</b> below, choose <b>DFU Insole</b> in the browser dialog, and pair.</li>
+              </ol>
+              <div style="display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;">
+                <button class="btn primary" id="connBtn2">Connect to Insole</button>
+                <button class="btn ghost" id="demoBtn2">Try Demo Mode</button>
+              </div>
+              <div class="note" style="margin-top:18px;">No hardware handy? <b>Demo Mode</b> streams a realistic simulated walking gait so you can explore every screen and rehearse your presentation.</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="hd"><h3>Connection</h3><p>Live link status</p></div>
+            <div class="bd">
+              <div class="kvs" style="font-size:13.5px;">
+                <div><span>Status</span><b id="cStatus">Disconnected</b></div>
+                <div><span>Device</span><b id="cDevice">&mdash;</b></div>
+                <div><span>Mode</span><b id="cMode">&mdash;</b></div>
+                <div><span>Samples received</span><b id="cSamples">0</b></div>
+                <div><span>Effective rate</span><b id="cRate">0 Hz</b></div>
+                <div><span>Last packet</span><b id="cLast">&mdash;</b></div>
+              </div>
+              <button class="btn danger" id="disconnBtn" style="margin-top:16px; width:100%;" disabled>Disconnect</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px;">
+          <div class="hd"><h3>Sensor map</h3><p>These four channels are what the firmware reads and what every chart in this app displays</p></div>
+          <div class="bd">
+            <div class="table-wrap" style="max-height:none;">
+              <table>
+                <thead><tr><th>Sensor</th><th>Arduino pin</th><th>Foot location</th><th>Packet bytes</th><th>Series color</th></tr></thead>
+                <tbody id="sensorMapBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ LIVE ============ -->
+      <section class="section" id="sec-live">
+        <div class="gauge-grid" id="gaugeGrid"></div>
+        <div class="row" style="margin-top:18px;">
+          <div class="card" style="flex:1 1 320px;">
+            <div class="hd"><h3>Plantar pressure map</h3><p>Live pressure at each sensor (plantar view)</p></div>
+            <div class="bd">
+              <div class="footmap-wrap">
+                <div id="footmap"></div>
+                <div class="heat-legend">
+                  <span style="font-weight:600;">High</span>
+                  <div class="heat-bar"></div>
+                  <span style="font-weight:600;">Low</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="flex:2 1 460px;">
+            <div class="hd"><h3>Live signal</h3><p>Last 15 seconds &middot; raw ADC counts (0&ndash;4095)</p></div>
+            <div class="bd">
+              <canvas id="liveChart" height="300"></canvas>
+              <div class="legend" id="liveLegend"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TRENDS ============ -->
+      <section class="section" id="sec-trends">
+        <div class="card">
+          <div class="hd" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+            <div><h3>Pressure trends</h3><p>Time-series history of all four sensors</p></div>
+            <div class="seg" id="windowSeg">
+              <button data-w="15">15s</button>
+              <button data-w="30" class="active">30s</button>
+              <button data-w="60">1m</button>
+              <button data-w="0">All</button>
+            </div>
+          </div>
+          <div class="bd">
+            <canvas id="trendChart" height="360"></canvas>
+            <div class="legend" id="trendLegend"></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:18px;">
+          <div class="hd"><h3>Total load</h3><p>Sum of all four sensors over time &mdash; a proxy for total weight-bearing through the foot</p></div>
+          <div class="bd"><canvas id="totalChart" height="220"></canvas></div>
+        </div>
+      </section>
+
+      <!-- ============ ANALYSIS ============ -->
+      <section class="section" id="sec-analysis">
+        <div class="card">
+          <div class="hd" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+            <div><h3>Session statistics</h3><p>Computed live across the current session</p></div>
+            <button class="btn ghost" id="resetStats">Reset statistics</button>
+          </div>
+          <div class="bd">
+            <div class="table-wrap" style="max-height:none;">
+              <table>
+                <thead><tr><th>Sensor</th><th>Current</th><th>Peak</th><th>Mean</th><th>Load share</th><th>Time over limit</th></tr></thead>
+                <tbody id="statBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:18px;">
+          <div class="card" style="flex:1 1 360px;">
+            <div class="hd"><h3>Load distribution</h3><p>Share of total current pressure per zone</p></div>
+            <div class="bd" id="distBars"></div>
+          </div>
+          <div class="card" style="flex:1 1 360px;">
+            <div class="hd"><h3>Balance metrics</h3><p>Regional pressure ratios (current)</p></div>
+            <div class="bd">
+              <div id="balanceRows"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px;">
+          <div class="hd" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+            <div><h3>DFU pressure-risk indicator</h3><p>Flags zones with sustained high plantar pressure &mdash; the primary mechanical driver of diabetic foot ulcers</p></div>
+            <label class="toggle" style="align-self:center;">
+              Limit:&nbsp;<input type="range" id="thresh" min="1000" max="4000" step="100" value="3000" style="display:inline-block; width:120px;">
+              <b id="threshVal" style="color:var(--text); min-width:42px; display:inline-block;">3000</b>
+            </label>
+          </div>
+          <div class="bd">
+            <div class="risk-grid" id="riskGrid"></div>
+            <div class="note warn" style="margin-top:16px;"><b>Research prototype &mdash; not a medical device.</b> Risk flags are derived from relative pressure thresholds for demonstration and are not a clinical diagnosis. Calibrate against a known load before drawing conclusions.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ DATA ============ -->
+      <section class="section" id="sec-data">
+        <div class="card">
+          <div class="hd" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+            <div><h3>Recording &amp; export</h3><p>Capture a session and export to CSV for your Python pipeline</p></div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn dark" id="recBtn">Start recording</button>
+              <button class="btn ghost" id="exportBtn">Export CSV</button>
+              <button class="btn ghost" id="exportJsonBtn">Export analysis JSON</button>
+              <button class="btn danger" id="clearBtn">Clear buffer</button>
+            </div>
+          </div>
+          <div class="bd">
+            <div class="stat-grid" style="grid-template-columns:repeat(4,1fr);">
+              <div class="stat"><div class="k">Buffer samples</div><div class="v" id="dBuffer">0</div></div>
+              <div class="stat"><div class="k">Recording</div><div class="v" id="dRecording">No</div></div>
+              <div class="stat"><div class="k">Recorded samples</div><div class="v" id="dRecorded">0</div></div>
+              <div class="stat"><div class="k">Duration</div><div class="v" id="dDuration">0.0s</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:18px;">
+          <div class="hd"><h3>Recent samples</h3><p>Most recent readings &middot; raw ADC counts</p></div>
+          <div class="bd">
+            <div class="table-wrap">
+              <table>
+                <thead><tr id="dataHead"></tr></thead>
+                <tbody id="dataBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ HELP ============ -->
+      <section class="section" id="sec-help">
+        <div class="card">
+          <div class="hd"><h3>Help &amp; Troubleshooting</h3><p>Everything from flashing to pairing to fixing bad data</p></div>
+          <div class="bd help">
+            <h4>1. Requirements</h4>
+            <ul>
+              <li>A browser that supports <b>Web Bluetooth</b>: desktop Chrome or Edge, or Chrome on Android.</li>
+              <li><b>Safari, iOS, and Firefox are not supported</b> &mdash; they do not implement Web Bluetooth.</li>
+              <li>The page must run in a <b>secure context</b>: open it from <code>https://</code>, from <code>http://localhost</code>, or directly as a local file in Chrome.</li>
+            </ul>
+
+            <h4>2. Running this app</h4>
+            <p>Easiest reliable method &mdash; serve it on localhost from the project folder:</p>
+            <ul>
+              <li>Open a terminal in the <code>webapp</code> folder.</li>
+              <li>Run <code>python3 -m http.server 8000</code></li>
+              <li>Open <code>http://localhost:8000</code> in Chrome.</li>
+            </ul>
+            <p>For the competition you can also host the single <code>index.html</code> on GitHub Pages (HTTPS) and open it on any supported laptop.</p>
+
+            <h4>3. Flashing the firmware</h4>
+            <ul>
+              <li>In the Arduino IDE: <b>Tools &rarr; Manage Libraries</b>, install <b>ArduinoBLE</b> (by Arduino).</li>
+              <li>Select board <b>Arduino Nano 33 BLE</b>, open <code>DFU_Insole_BLE.ino</code>, and upload.</li>
+              <li>After upload the board advertises as <b>DFU Insole</b>. The Serial Monitor (115200) mirrors readings for debugging.</li>
+            </ul>
+
+            <h4>4. Pairing problems</h4>
+            <table style="margin-top:6px;">
+              <thead><tr><th>Symptom</th><th>Fix</th></tr></thead>
+              <tbody>
+                <tr><td style="white-space:normal;">Connect button does nothing / "Bluetooth not available"</td><td style="white-space:normal; text-align:left;">You are not on Chrome/Edge in a secure context. Switch browser or serve over localhost (see step 2).</td></tr>
+                <tr><td style="white-space:normal;">"DFU Insole" not in the device list</td><td style="white-space:normal; text-align:left;">Confirm the board is powered and was flashed with the BLE firmware. Make sure no other phone/laptop is already connected to it (BLE allows one central at a time).</td></tr>
+                <tr><td style="white-space:normal;">Pairs, then immediately disconnects</td><td style="white-space:normal; text-align:left;">Low battery or USB brown-out. Try a different cable / fresh charge. Move closer to the laptop.</td></tr>
+                <tr><td style="white-space:normal;">Connected but no data / all zeros</td><td style="white-space:normal; text-align:left;">Sensors unplugged or not pressed. Press a sensor and watch the Live Monitor. If still flat, run the continuity tests in the build guide (Phase 7).</td></tr>
+              </tbody>
+            </table>
+
+            <h4>5. Data looks wrong</h4>
+            <table style="margin-top:6px;">
+              <thead><tr><th>Symptom</th><th>Likely cause</th></tr></thead>
+              <tbody>
+                <tr><td style="white-space:normal;">Two or more sensors read identical values</td><td style="white-space:normal; text-align:left;">A solder bridge or the old bare-rail short ties channels together. Re-run build-guide Phase 7, Test 1.</td></tr>
+                <tr><td style="white-space:normal;">A channel is stuck at ~4095 or ~0</td><td style="white-space:normal; text-align:left;">Stuck high = signal shorted to 3.3V or no pull-down. Stuck low = open sensor or signal shorted to ground. Check that port&rsquo;s wiring.</td></tr>
+                <tr><td style="white-space:normal;">Values jump around wildly</td><td style="white-space:normal; text-align:left;">Loose FSR joint or floating wire. Reflow the FSR tabs; confirm the pull-down resistor is seated.</td></tr>
+                <tr><td style="white-space:normal;">Wrong sensor lights up when pressed</td><td style="white-space:normal; text-align:left;">A cord is in the wrong port. Match plug labels to ports: Ball&rarr;A1, Big Toe&rarr;A2, Heel&rarr;A3, Little Toe&rarr;A0.</td></tr>
+              </tbody>
+            </table>
+
+            <h4>6. Calibration tips</h4>
+            <ul>
+              <li>FSRs are not precision sensors &mdash; treat the values as <b>relative</b> pressure, not absolute force.</li>
+              <li>With no load, a channel should sit near 0&ndash;100 counts. Standing should drive the loaded zones well above the limit line.</li>
+              <li>Set the <b>Limit</b> slider on the Analysis tab just above resting noise so the risk flags are meaningful for your subject.</li>
+            </ul>
+
+            <h4>7. Safety &amp; scope</h4>
+            <div class="note bad" style="margin-top:6px;">This is a <b>student research prototype</b> for measuring plantar pressure patterns. It is <b>not a medical device</b> and must not be used for diagnosis or treatment decisions.</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* =========================================================================
+   SENSOR TABLE  -  single source of truth.
+   Order here = display order everywhere. Each entry's byte offset ties the
+   value to the exact Arduino pin the firmware reads, so the ports that are
+   read ALWAYS match what is shown in the app.
+   BLE packet (little-endian): u32 time, then u16 per channel at these offsets.
+   ========================================================================= */
+const SENSORS = [
+  { key:'bigToe',    label:'Big Toe',    pin:'A2', loc:'1st metatarsal head', off:8,  color:'#10b981' },
+  { key:'ball',      label:'Ball',       pin:'A1', loc:'3rd metatarsal head', off:6,  color:'#0ea5e9' },
+  { key:'littleToe', label:'Little Toe', pin:'A0', loc:'5th metatarsal head', off:4,  color:'#8b5cf6' },
+  { key:'heel',      label:'Heel',       pin:'A3', loc:'Calcaneus',           off:10, color:'#f59e0b' },
+];
+const N = SENSORS.length;
+const ADC_MAX = 4095;
+
+const SERVICE_UUID = '19b10000-e8f2-537e-4f6c-d104768a1214';
+const CHAR_UUID    = '19b10001-e8f2-537e-4f6c-d104768a1214';
+
+/* ---------- state ---------- */
+const MAX_SAMPLES = 8000;          // ~6.5 min at 20 Hz
+let samples = [];                  // {t (ms), v:[N]}
+let latest = new Array(N).fill(0);
+let totalCount = 0;
+let lastPacketWall = 0;
+let rateWin = [];                  // wall times for Hz calc
+
+let device = null, server = null, characteristic = null;
+let connected = false, demo = false, demoTimer = null;
+
+let stat = { peak:new Array(N).fill(0), sum:new Array(N).fill(0), n:0,
+             over:new Array(N).fill(0), pti:new Array(N).fill(0) };
+let riskThreshold = 3000;
+
+let recording = false, recBuffer = [], recStartT = 0;
+let activeSec = 'connect';
+let trendWindow = 30;              // seconds, 0 = all
+
+/* ---------- helpers ---------- */
+const $ = id => document.getElementById(id);
+const clamp = (x,a,b) => Math.max(a, Math.min(b, x));
+function fmt(n){ return n.toLocaleString('en-US'); }
+
+function heatColor(t){          // t 0..1  ->  green -> yellow -> orange -> red
+  t = clamp(t,0,1);
+  const stops = [[34,197,94],[234,179,8],[249,115,22],[239,68,68]];
+  const seg = clamp(t*3, 0, 2.9999);
+  const i = Math.floor(seg), f = seg - i;
+  const a = stops[i], b = stops[i+1];
+  const c = a.map((v,k)=> Math.round(v + (b[k]-v)*f));
+  return `rgb(${c[0]},${c[1]},${c[2]})`;
+}
+
+/* =========================================================================
+   BLE CONNECTION
+   ========================================================================= */
+async function connect(){
+  if(!navigator.bluetooth){ alert('Web Bluetooth is not available. Use Chrome or Edge on desktop, or Chrome on Android, over localhost or HTTPS.'); return; }
+  try{
+    device = await navigator.bluetooth.requestDevice({
+      filters:[{ name:'DFU Insole' }],
+      optionalServices:[SERVICE_UUID]
+    });
+    device.addEventListener('gattserverdisconnected', onDisconnected);
+    server = await device.gatt.connect();
+    const service = await server.getPrimaryService(SERVICE_UUID);
+    characteristic = await service.getCharacteristic(CHAR_UUID);
+    await characteristic.startNotifications();
+    characteristic.addEventListener('characteristicvaluechanged', onData);
+    stopDemo();
+    connected = true; demo = false;
+    setConnState();
+  }catch(e){
+    console.error(e);
+    if(e && e.name !== 'NotFoundError') alert('Connection failed: ' + e.message);
+  }
+}
+function disconnect(){
+  if(device && device.gatt && device.gatt.connected) device.gatt.disconnect();
+  onDisconnected();
+}
+function onDisconnected(){
+  connected = false; characteristic = null; server = null;
+  setConnState();
+}
+function onData(ev){
+  const dv = ev.target.value;
+  const t = dv.getUint32(0, true);
+  const v = SENSORS.map(s => dv.getUint16(s.off, true));
+  pushSample(t, v);
+}
+
+/* =========================================================================
+   DEMO MODE  -  realistic simulated walking gait
+   ========================================================================= */
+function startDemo(){
+  if(connected) disconnect();
+  demo = true; setConnState();
+  let phase = Math.random();
+  demoTimer = setInterval(()=>{
+    phase = (phase + 0.045) % 1;          // one gait cycle ~1.1 s
+    const c = phase;
+    const bump=(ctr,w,amp)=> amp*Math.exp(-((c-ctr)**2)/(2*w*w));
+    const noise=()=> (Math.random()-0.5)*140;
+    const base = 70;
+    const gen = {
+      heel:      bump(0.16,0.10,3300) + bump(0.16-1,0.10,3300),
+      ball:      bump(0.46,0.13,3050),
+      bigToe:    bump(0.63,0.10,2650),
+      littleToe: bump(0.52,0.13,1500),
+    };
+    const v = SENSORS.map(s => clamp(Math.round(gen[s.key] + base + noise()), 0, ADC_MAX));
+    pushSample(performance.now(), v);
+  }, 50);
+}
+function stopDemo(){
+  if(demoTimer){ clearInterval(demoTimer); demoTimer = null; }
+  demo = false;
+}
+function toggleDemo(){ if(demo) { stopDemo(); setConnState(); } else startDemo(); }
+
+/* =========================================================================
+   DATA INTAKE
+   ========================================================================= */
+function pushSample(t, v){
+  const prev = samples[samples.length-1];
+  const dt = prev ? clamp(t - prev.t, 0, 1000) : 50;   // ms
+  samples.push({ t, v });
+  if(samples.length > MAX_SAMPLES) samples.shift();
+  latest = v;
+  totalCount++;
+
+  for(let i=0;i<N;i++){
+    const val = v[i];
+    if(val > stat.peak[i]) stat.peak[i] = val;
+    stat.sum[i] += val;
+    stat.pti[i] += val * dt / 1000;
+    if(val >= riskThreshold) stat.over[i] += dt / 1000;
+  }
+  stat.n++;
+
+  if(recording) recBuffer.push({ t, v });
+
+  const now = performance.now();
+  lastPacketWall = now;
+  rateWin.push(now);
+  while(rateWin.length && now - rateWin[0] > 2000) rateWin.shift();
+}
+
+/* =========================================================================
+   UI STATE
+   ========================================================================= */
+function setConnState(){
+  const pill = $('statusPill'), pdot = pill.querySelector('.dot');
+  $('connBtn').textContent = connected ? 'Connected' : 'Connect';
+  $('disconnBtn').disabled = !connected;
+  if(connected){
+    pill.className='pill on'; $('statusText').textContent='Connected';
+    pdot.className='dot on';
+    $('miniDot').className='dot on'; $('miniText').textContent='Connected';
+    $('cStatus').textContent='Connected';
+    $('cDevice').textContent = device && device.name ? device.name : 'DFU Insole';
+    $('cMode').textContent='Bluetooth LE';
+  }else if(demo){
+    pill.className='pill demo'; $('statusText').textContent='Demo Mode';
+    pdot.className='dot demo';
+    $('miniDot').className='dot demo'; $('miniText').textContent='Demo Mode';
+    $('cStatus').textContent='Demo Mode';
+    $('cDevice').textContent='Simulated gait';
+    $('cMode').textContent='Demo (no hardware)';
+  }else{
+    pill.className='pill off'; $('statusText').textContent='Disconnected';
+    pdot.className='dot';
+    $('miniDot').className='dot'; $('miniText').textContent='Not connected';
+    $('cStatus').textContent='Disconnected';
+    $('cDevice').textContent='—'; $('cMode').textContent='—';
+  }
+  $('demoBtn').textContent = demo ? 'Stop Demo' : 'Demo Mode';
+}
+
+function switchSection(sec){
+  activeSec = sec;
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  $('sec-'+sec).classList.add('active');
+  document.querySelectorAll('#nav .navbtn').forEach(b=>b.classList.toggle('active', b.dataset.sec===sec));
+  document.querySelectorAll('#mobilenav button').forEach(b=>b.classList.toggle('active', b.dataset.sec===sec));
+  const titles = {connect:['Connect','Pair your insole over Bluetooth to begin'],
+    live:['Live Monitor','Real-time plantar pressure'],
+    trends:['Trends','Pressure history over time'],
+    analysis:['Analysis','Session statistics and DFU risk'],
+    data:['Data & Export','Record sessions and export CSV'],
+    help:['Help & Troubleshooting','Setup, pairing and fixes']};
+  $('pageTitle').textContent = titles[sec][0];
+  $('pageSub').textContent = titles[sec][1];
+}
+
+/* =========================================================================
+   STATIC UI BUILD
+   ========================================================================= */
+function buildStaticUI(){
+  // mobile nav mirrors sidebar
+  const mnav = $('mobilenav');
+  [['connect','Connect'],['live','Live'],['trends','Trends'],['analysis','Analysis'],['data','Data'],['help','Help']]
+    .forEach(([sec,lab],i)=>{ const b=document.createElement('button'); b.textContent=lab; b.dataset.sec=sec; if(i===0)b.classList.add('active'); b.onclick=()=>switchSection(sec); mnav.appendChild(b); });
+
+  // sensor map table
+  $('sensorMapBody').innerHTML = SENSORS.map(s=>`
+    <tr><td><b>${s.label}</b></td><td>${s.pin}</td><td style="text-align:right;">${s.loc}</td>
+    <td>${s.off}–${s.off+1}</td>
+    <td style="text-align:right;"><span style="display:inline-block;width:26px;height:8px;border-radius:4px;background:${s.color};vertical-align:middle;"></span></td></tr>`).join('');
+
+  // gauges
+  $('gaugeGrid').innerHTML = SENSORS.map(s=>`
+    <div class="gauge">
+      <div class="lab"><span class="swatch" style="background:${s.color}"></span>${s.label}</div>
+      <div class="val" id="g-${s.key}">0</div>
+      <div class="pin">${s.pin} &middot; ${s.loc}</div>
+      <div class="bar"><span id="gb-${s.key}" style="width:0%;background:${s.color}"></span></div>
+    </div>`).join('');
+
+  // legends
+  const legHtml = SENSORS.map(s=>`<div class="it"><span style="background:${s.color}"></span>${s.label} (${s.pin})</div>`).join('');
+  $('liveLegend').innerHTML = legHtml;
+  $('trendLegend').innerHTML = legHtml;
+
+  // data table head
+  $('dataHead').innerHTML = `<th>Time (s)</th>` + SENSORS.map(s=>`<th>${s.label}</th>`).join('');
+
+  // footmap
+  buildFootmap();
+
+  // dist + balance + risk skeleton built on render
+}
+
+/* =========================================================================
+   FOOT MAP (SVG)
+   ========================================================================= */
+// LEFT foot, plantar view: big toe on the left, arch on the left.
+// Forefoot sensors sit in an arch across the ball of the foot (metatarsal
+// heads); heel at the rear. Each has a label so it reads as a foot diagram.
+const FOOT_POS = {  // positions within 240 x 480 viewBox
+  bigToe:    {x:74,  y:150, r:22, ly:186},
+  ball:      {x:124, y:138, r:24, ly:176},
+  littleToe: {x:170, y:156, r:18, ly:190},
+  heel:      {x:118, y:394, r:30, ly:439},
+};
+function buildFootmap(){
+  const toes = `
+    <ellipse cx="72"  cy="64" rx="16" ry="20" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <ellipse cx="106" cy="52" rx="11" ry="15" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <ellipse cx="130" cy="50" rx="10" ry="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <ellipse cx="152" cy="54" rx="9"  ry="13" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <ellipse cx="172" cy="64" rx="8"  ry="12" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>`;
+  const dots = SENSORS.map(s=>{
+    const p = FOOT_POS[s.key];
+    return `<circle id="fc-${s.key}" cx="${p.x}" cy="${p.y}" r="${p.r}" fill="#cbd5e1" stroke="#fff" stroke-width="3"/>
+      <text id="ft-${s.key}" x="${p.x}" y="${p.y+4}" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">0</text>
+      <text x="${p.x}" y="${p.ly}" text-anchor="middle" font-size="10.5" font-weight="600" fill="#475569">${s.label}</text>`;
+  }).join('');
+  $('footmap').innerHTML = `
+  <svg viewBox="0 0 240 480" width="210" style="max-width:100%;">
+    ${toes}
+    <path d="M50 120 C48 96 70 86 110 86 C150 86 196 96 196 140
+             C198 170 188 196 176 220 C168 244 166 262 168 286
+             C170 320 176 348 172 380 C168 422 150 452 116 452
+             C86 452 70 422 70 384 C70 350 78 322 76 290
+             C74 262 62 244 56 220 C46 196 40 168 50 120 Z"
+          fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    ${dots}
+    <text x="120" y="474" text-anchor="middle" font-size="11" fill="#94a3b8">Plantar view &middot; left foot</text>
+  </svg>`;
+}
+
+/* =========================================================================
+   CANVAS LINE CHART
+   ========================================================================= */
+function prepCanvas(cv){
+  const dpr = window.devicePixelRatio || 1;
+  // Capture the logical height ONCE. Setting cv.height rewrites the height
+  // attribute, so re-reading it each frame would compound (and at dpr>1 it
+  // grows until the canvas exceeds the max size and renders as broken).
+  if(cv._logicalH === undefined) cv._logicalH = +cv.getAttribute('height') || 300;
+  const cssH = cv._logicalH;
+  cv.style.height = cssH + 'px';                       // stable CSS height (avoids broken sizing)
+  const cssW = cv.clientWidth || (cv.parentElement ? cv.parentElement.clientWidth - 40 : 0);
+  if(cssW <= 0) return null;                           // not laid out yet - skip this frame
+  const bw = Math.round(cssW * dpr), bh = Math.round(cssH * dpr);
+  if(cv.width !== bw) cv.width = bw;                   // resize backing store only when it changes
+  if(cv.height !== bh) cv.height = bh;
+  const ctx = cv.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,cssW,cssH);
+  return { ctx, w:cssW, h:cssH };
+}
+
+function drawLineChart(cv, series, opts){
+  opts = opts || {};
+  const prepared = prepCanvas(cv);
+  if(!prepared) return;
+  const { ctx, w, h } = prepared;
+  const pad = { l:46, r:14, t:14, b:24 };
+  const cw = w - pad.l - pad.r, ch = h - pad.t - pad.b;
+  if(cw<=0||ch<=0) return;
+
+  let xmin=opts.xmin, xmax=opts.xmax, ymin=0, ymax=opts.ymax||ADC_MAX;
+  if(xmin==null||xmax==null){
+    xmin=Infinity; xmax=-Infinity;
+    series.forEach(s=>s.data.forEach(p=>{ if(p.x<xmin)xmin=p.x; if(p.x>xmax)xmax=p.x; }));
+  }
+  if(!isFinite(xmin)||!isFinite(xmax)||xmin===xmax){ xmin=0; xmax=1; }
+
+  const X = x => pad.l + (x-xmin)/(xmax-xmin)*cw;
+  const Y = y => pad.t + ch - (y-ymin)/(ymax-ymin)*ch;
+
+  // grid + y labels
+  ctx.strokeStyle='#eef2f6'; ctx.fillStyle='#94a3b8'; ctx.lineWidth=1;
+  ctx.font='11px -apple-system,Segoe UI,Roboto,sans-serif'; ctx.textAlign='right'; ctx.textBaseline='middle';
+  const yticks = 4;
+  for(let i=0;i<=yticks;i++){
+    const yv = ymin + (ymax-ymin)*i/yticks;
+    const py = Y(yv);
+    ctx.beginPath(); ctx.moveTo(pad.l,py); ctx.lineTo(w-pad.r,py); ctx.stroke();
+    ctx.fillText(Math.round(yv), pad.l-8, py);
+  }
+  // x labels (seconds)
+  ctx.textAlign='center'; ctx.textBaseline='top';
+  const xticks=5;
+  for(let i=0;i<=xticks;i++){
+    const xv = xmin + (xmax-xmin)*i/xticks;
+    const px = X(xv);
+    const lab = opts.xlabel ? opts.xlabel(xv) : xv.toFixed(0);
+    ctx.fillText(lab, px, h-pad.b+6);
+  }
+
+  // lines
+  series.forEach(s=>{
+    if(!s.data.length) return;
+    ctx.strokeStyle=s.color; ctx.lineWidth=2; ctx.lineJoin='round'; ctx.beginPath();
+    let started=false;
+    s.data.forEach(p=>{
+      const px=X(p.x), py=Y(clamp(p.y,ymin,ymax));
+      if(!started){ ctx.moveTo(px,py); started=true; } else ctx.lineTo(px,py);
+    });
+    ctx.stroke();
+  });
+
+  if(series.every(s=>!s.data.length)){
+    ctx.fillStyle='#cbd5e1'; ctx.font='14px sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText('Waiting for data…', w/2, h/2);
+  }
+}
+
+/* =========================================================================
+   RENDERERS
+   ========================================================================= */
+function tailByTime(seconds){
+  if(!samples.length) return [];
+  if(!seconds) return samples;
+  const cutoff = samples[samples.length-1].t - seconds*1000;
+  let i = samples.length-1;
+  while(i>0 && samples[i-1].t >= cutoff) i--;
+  return samples.slice(i);
+}
+
+function renderLive(){
+  // gauges + bars + footmap
+  for(let i=0;i<N;i++){
+    const s = SENSORS[i], val = latest[i]||0, pct = clamp(val/ADC_MAX*100,0,100);
+    const g=$('g-'+s.key); if(g) g.textContent = fmt(val);
+    const gb=$('gb-'+s.key); if(gb){ gb.style.width = pct+'%'; gb.style.background = heatColor(val/ADC_MAX); }
+    const fc=$('fc-'+s.key), ft=$('ft-'+s.key);
+    if(fc){ fc.setAttribute('fill', val>40 ? heatColor(val/ADC_MAX) : '#cbd5e1'); }
+    if(ft){ ft.textContent = val; }
+  }
+  // live chart, last 15s relative
+  const data = tailByTime(15);
+  const tEnd = data.length ? data[data.length-1].t : 0;
+  const series = SENSORS.map((s,i)=>({ color:s.color, data:data.map(d=>({ x:(d.t-tEnd)/1000, y:d.v[i] })) }));
+  drawLineChart($('liveChart'), series, { xmin:-15, xmax:0, ymax:ADC_MAX, xlabel:v=>v.toFixed(0)+'s' });
+}
+
+function renderTrends(){
+  const data = tailByTime(trendWindow);
+  const tEnd = data.length ? data[data.length-1].t : 0;
+  const span = trendWindow || (data.length ? (tEnd - data[0].t)/1000 : 1);
+  const series = SENSORS.map((s,i)=>({ color:s.color, data:data.map(d=>({ x:(d.t-tEnd)/1000, y:d.v[i] })) }));
+  drawLineChart($('trendChart'), series, { xmin:-span, xmax:0, ymax:ADC_MAX, xlabel:v=>v.toFixed(0)+'s' });
+  // total load
+  const tot = { color:'#0f2540', data:data.map(d=>({ x:(d.t-tEnd)/1000, y:d.v.reduce((a,b)=>a+b,0) })) };
+  drawLineChart($('totalChart'), [tot], { xmin:-span, xmax:0, ymax:ADC_MAX*N, xlabel:v=>v.toFixed(0)+'s' });
+}
+
+function renderAnalysis(){
+  const total = latest.reduce((a,b)=>a+b,0) || 1;
+  // stat table
+  $('statBody').innerHTML = SENSORS.map((s,i)=>{
+    const mean = stat.n ? stat.sum[i]/stat.n : 0;
+    const share = latest[i]/total*100;
+    return `<tr><td><b>${s.label}</b> <span style="color:#94a3b8;font-weight:400">${s.pin}</span></td>
+      <td>${fmt(latest[i]||0)}</td><td>${fmt(Math.round(stat.peak[i]))}</td>
+      <td>${fmt(Math.round(mean))}</td><td>${share.toFixed(0)}%</td>
+      <td>${stat.over[i].toFixed(1)}s</td></tr>`;
+  }).join('');
+
+  // distribution bars
+  $('distBars').innerHTML = SENSORS.map((s,i)=>{
+    const share = latest[i]/total*100;
+    return `<div style="margin-bottom:13px;">
+      <div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px;">
+        <span style="font-weight:600;">${s.label}</span><span style="color:var(--muted);font-variant-numeric:tabular-nums;">${share.toFixed(0)}%</span></div>
+      <div class="bar" style="height:10px;"><span style="width:${clamp(share,0,100)}%;background:${s.color};"></span></div>
+    </div>`;
+  }).join('');
+
+  // balance metrics
+  const get = k => latest[SENSORS.findIndex(s=>s.key===k)] || 0;
+  const forefoot = get('bigToe')+get('ball')+get('littleToe');
+  const rearfoot = get('heel');
+  const medial = get('bigToe'), lateral = get('littleToe');
+  const ratio = (a,b)=> b>0 ? (a/b).toFixed(2)+' : 1' : (a>0?'∞':'—');
+  const pctSplit = (a,b)=>{ const t=a+b; return t>0 ? `${Math.round(a/t*100)}% / ${Math.round(b/t*100)}%` : '—'; };
+  $('balanceRows').innerHTML = `
+    <div class="kvs" style="font-size:13.5px;">
+      <div><span>Forefoot vs rearfoot</span><b>${pctSplit(forefoot,rearfoot)}</b></div>
+      <div><span>Forefoot : rearfoot ratio</span><b>${ratio(forefoot,rearfoot)}</b></div>
+      <div><span>Medial (big toe) vs lateral (little toe)</span><b>${pctSplit(medial,lateral)}</b></div>
+      <div><span>Total load (sum of zones)</span><b>${fmt(latest.reduce((a,b)=>a+b,0))}</b></div>
+    </div>`;
+
+  // risk
+  $('riskGrid').innerHTML = SENSORS.map((s,i)=>{
+    const peak = stat.peak[i], over = stat.over[i];
+    let cls='low', lvl='Low';
+    if(peak>=riskThreshold && over>=3){ cls='high'; lvl='High'; }
+    else if(peak>=riskThreshold || over>=1){ cls='mod'; lvl='Moderate'; }
+    return `<div class="risk ${cls}">
+      <div class="name">${s.label}</div>
+      <div class="level">${lvl} risk</div>
+      <div class="kvs"><div><span>Peak</span><b>${fmt(Math.round(peak))}</b></div>
+        <div><span>Time over limit</span><b>${over.toFixed(1)}s</b></div></div>
+    </div>`;
+  }).join('');
+}
+
+function renderData(){
+  $('dBuffer').textContent = fmt(samples.length);
+  $('dRecording').textContent = recording ? 'Yes' : 'No';
+  $('dRecorded').textContent = fmt(recBuffer.length);
+  let dur = 0;
+  if(recBuffer.length>1) dur = (recBuffer[recBuffer.length-1].t - recBuffer[0].t)/1000;
+  $('dDuration').textContent = dur.toFixed(1)+'s';
+
+  const tail = samples.slice(-60).reverse();
+  const t0 = samples.length ? samples[0].t : 0;
+  $('dataBody').innerHTML = tail.map(d=>{
+    return `<tr><td>${((d.t-t0)/1000).toFixed(2)}</td>` +
+      SENSORS.map((s,i)=>`<td>${fmt(d.v[i])}</td>`).join('') + `</tr>`;
+  }).join('') || `<tr><td colspan="${N+1}" style="text-align:center;color:#94a3b8;">No samples yet</td></tr>`;
+}
+
+/* connection live fields */
+function renderConn(){
+  $('cSamples').textContent = fmt(totalCount);
+  const hz = rateWin.length>1 ? (rateWin.length-1)/((rateWin[rateWin.length-1]-rateWin[0])/1000) : 0;
+  $('cRate').textContent = (connected||demo) ? hz.toFixed(1)+' Hz' : '0 Hz';
+  $('cLast').textContent = lastPacketWall ? ((performance.now()-lastPacketWall)/1000).toFixed(1)+'s ago' : '—';
+}
+
+/* =========================================================================
+   RENDER LOOP (throttled ~25 fps)
+   ========================================================================= */
+let lastRender = 0;
+function loop(ts){
+  if(ts - lastRender > 40){
+    lastRender = ts;
+    renderConn();
+    if(activeSec==='live') renderLive();
+    else if(activeSec==='trends') renderTrends();
+    else if(activeSec==='analysis') renderAnalysis();
+    else if(activeSec==='data') renderData();
+  }
+  requestAnimationFrame(loop);
+}
+
+/* =========================================================================
+   EXPORT / RECORDING
+   ========================================================================= */
+function toggleRecord(){
+  recording = !recording;
+  if(recording){ recBuffer = []; recStartT = performance.now(); }
+  $('recBtn').textContent = recording ? 'Stop recording' : 'Start recording';
+  $('recBtn').className = recording ? 'btn danger' : 'btn dark';
+  renderData();
+}
+function exportCSV(){
+  const src = recBuffer.length ? recBuffer : samples;
+  if(!src.length){ alert('No data to export yet. Connect or run Demo Mode first.'); return; }
+  const head = ['index','device_ms'].concat(SENSORS.map(s=>`${s.label.replace(' ','')}_${s.pin}`)).join(',');
+  const t0 = src[0].t;
+  const rows = src.map((d,idx)=> [idx, Math.round(d.t - t0)].concat(d.v).join(','));
+  const csv = head + '\n' + rows.join('\n');
+  const blob = new Blob([csv], {type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `dfu_insole_${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.csv`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+// Export in the public /api/export.json schema (calcaneus, metatarsal1/3/5).
+function exportAnalysisJSON(){
+  const src = recBuffer.length ? recBuffer : samples;
+  if(!src.length){ alert('No data to export yet. Connect or run Demo Mode first.'); return; }
+  const idx = k => SENSORS.findIndex(s=>s.key===k);
+  const iHeel=idx('heel'), iBig=idx('bigToe'), iBall=idx('ball'), iLil=idx('littleToe');
+  const lastT = src[src.length-1].t, wallEnd = Date.now();
+  const out = src.map(d=>({
+    timestamp:   new Date(wallEnd - (lastT - d.t)).toISOString(),
+    calcaneus:   d.v[iHeel],   // A3 heel
+    metatarsal1: d.v[iBig],    // A2 big toe
+    metatarsal3: d.v[iBall],   // A1 ball
+    metatarsal5: d.v[iLil],    // A0 little toe
+    activity:    'unknown',
+    battery_pct: null
+  }));
+  const blob = new Blob([JSON.stringify(out, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `dfu_insole_${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+function clearBuffer(){
+  if(!confirm('Clear all buffered samples? Recorded (unexported) data will also be cleared.')) return;
+  samples = []; recBuffer = []; totalCount = 0; rateWin = [];
+  resetStats();
+}
+function resetStats(){
+  stat = { peak:new Array(N).fill(0), sum:new Array(N).fill(0), n:0, over:new Array(N).fill(0), pti:new Array(N).fill(0) };
+}
+
+/* =========================================================================
+   COMPAT BANNER
+   ========================================================================= */
+function checkCompat(){
+  const el = $('compat');
+  if(navigator.bluetooth){
+    el.innerHTML = `<div class="note"><b>Web Bluetooth detected.</b> You are good to pair. If the device list is empty, confirm the insole is powered and advertising.</div>`;
+  }else{
+    el.innerHTML = `<div class="note bad"><b>Web Bluetooth is not available in this browser.</b> Use desktop Chrome or Edge (or Chrome on Android), served from <code>http://localhost</code> or HTTPS. You can still explore everything with <b>Demo Mode</b>.</div>`;
+  }
+}
+
+/* =========================================================================
+   WIRE UP EVENTS
+   ========================================================================= */
+function init(){
+  buildStaticUI();
+  checkCompat();
+  setConnState();
+  renderData();
+
+  document.querySelectorAll('#nav .navbtn').forEach(b=> b.onclick = ()=>switchSection(b.dataset.sec));
+  $('connBtn').onclick = connect;
+  $('connBtn2').onclick = connect;
+  $('disconnBtn').onclick = disconnect;
+  $('demoBtn').onclick = toggleDemo;
+  $('demoBtn2').onclick = ()=>{ if(!demo) startDemo(); switchSection('live'); };
+
+  $('windowSeg').querySelectorAll('button').forEach(b=> b.onclick = ()=>{
+    trendWindow = +b.dataset.w;
+    $('windowSeg').querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
+  });
+
+  $('thresh').oninput = e=>{ riskThreshold = +e.target.value; $('threshVal').textContent = riskThreshold; };
+  $('resetStats').onclick = resetStats;
+  $('recBtn').onclick = toggleRecord;
+  $('exportBtn').onclick = exportCSV;
+  $('exportJsonBtn').onclick = exportAnalysisJSON;
+  $('clearBtn').onclick = clearBuffer;
+
+  requestAnimationFrame(loop);
+}
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

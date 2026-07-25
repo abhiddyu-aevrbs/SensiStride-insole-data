@@ -1,0 +1,14 @@
+{
+  "name": "DFU Smart Insole Monitor",
+  "short_name": "DFU Insole",
+  "description": "Live plantar-pressure monitoring for the DFU smart insole",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eef2f6",
+  "theme_color": "#0f2540",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
