@@ -140,6 +140,8 @@
   .note.bad{border-color:var(--bad); background:rgba(239,68,68,.07);}
 
   .actbar{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  .actbar button small{display:block; font-size:11px; font-weight:500; opacity:.62; margin-top:3px; line-height:1.25;}
+  @media(max-width:880px){ .actbar{grid-template-columns:repeat(2,1fr);} }
   .actbar button{border:2px solid var(--border); background:var(--surface-2); color:var(--text);
     padding:16px 10px; border-radius:12px; font-family:inherit; font-size:15px; font-weight:700;
     cursor:pointer; transition:.12s;}
@@ -426,9 +428,12 @@
           </div>
           <div class="bd">
             <div class="actbar" id="actBar">
-              <button data-act="standing">Standing</button>
-              <button data-act="walking">Walking</button>
-              <button data-act="transition">Transition</button>
+              <button data-act="standing">Standing<small>still, both feet</small></button>
+              <button data-act="normal">Normal<small>walk how you normally do</small></button>
+              <button data-act="lateral">Lateral<small>roll onto outer edge</small></button>
+              <button data-act="medial">Medial<small>roll ankle inward</small></button>
+              <button data-act="forefoot">Forefoot<small>walk on your toes</small></button>
+              <button data-act="heel_slam">Heel slam<small>stamp the heel down</small></button>
             </div>
             <div class="kvs" id="actDur" style="margin-top:12px;"></div>
           </div>
@@ -641,9 +646,10 @@ let tare = null;                  // { offsets:[N], at:ISO, samples:n }
 let tareBuf = null;               // collecting while a tare is in progress
 
 /* ---- manual activity labelling ---- */
-const ACTIVITIES = ['standing','walking','transition'];
+const ACTIVITIES = ['standing','normal','lateral','medial','forefoot','heel_slam'];
+const ACTIVITY_LABEL = {standing:'standing', normal:'normal', lateral:'lateral', medial:'medial', forefoot:'forefoot', heel_slam:'heel slam', unknown:'no label'};
 let currentActivity = 'unknown';
-let activityDur = { standing:0, walking:0, transition:0, unknown:0 };
+let activityDur = Object.fromEntries([...ACTIVITIES,'unknown'].map(k=>[k,0]));
 
 /* wall-clock anchor so exported timestamps are real dates, not ms-since-boot */
 let wallAnchorDevice = null, wallAnchorWall = null;
@@ -1531,7 +1537,7 @@ function setActivity(a){
   renderActivityUI();
 }
 function resetActivityDurations(){
-  activityDur = { standing:0, walking:0, transition:0, unknown:0 };
+  activityDur = Object.fromEntries([...ACTIVITIES,'unknown'].map(k=>[k,0]));
 }
 function renderActivityUI(){
   const bar = $('actBar'); if(!bar) return;
@@ -1539,14 +1545,14 @@ function renderActivityUI(){
   const now = $('actNow');
   if(now){
     now.className = 'actnow' + (currentActivity !== 'unknown' ? ' on' : '');
-    now.textContent = currentActivity === 'unknown' ? 'No label selected' : currentActivity;
+    now.textContent = currentActivity === 'unknown' ? 'No label selected' : (ACTIVITY_LABEL[currentActivity] || currentActivity);
   }
   const d = $('actDur');
   if(d){
-    d.innerHTML = ['standing','walking','transition','unknown'].map(k=>{
+    d.innerHTML = [...ACTIVITIES,'unknown'].map(k=>{
       const sec = activityDur[k] || 0;
       if(k === 'unknown' && sec < 0.5) return '';
-      return `<div><span>${k}</span><b>${sec.toFixed(1)} s</b></div>`;
+      return `<div><span>${ACTIVITY_LABEL[k] || k}</span><b>${sec.toFixed(1)} s</b></div>`;
     }).join('');
   }
 }
@@ -1554,7 +1560,7 @@ function renderActivityUI(){
 /* per-state statistics - the Results table for the paper */
 function stateStats(){
   const out = {};
-  ['standing','walking','transition','unknown'].forEach(st=>{
+  [...ACTIVITIES,'unknown'].forEach(st=>{
     const rows = samples.filter(d => (d.a || 'unknown') === st);
     if(!rows.length) return;
     out[st] = {
