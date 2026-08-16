@@ -1016,8 +1016,8 @@ function renderLive(){
     const g=$('g-'+s.key); if(g) g.textContent = fmt(val);
     const gb=$('gb-'+s.key); if(gb){ gb.style.width = pct+'%'; gb.style.background = heatColor(val/ADC_MAX); }
     const gf=$('gf-'+s.key);
-    if(gf){ const nw = calApplied ? adcToNewtons(s.key, val) : null;
-      gf.innerHTML = nw != null ? `<b style="color:var(--text)">${nw.toFixed(1)} N</b> &middot; ` : ''; }
+    if(gf){ const t = calApplied ? forceText(s.key, val) : '';
+      gf.innerHTML = t ? `<b style="color:var(--text)">${t}</b> &middot; ` : ''; }
     const fc=$('fc-'+s.key), ft=$('ft-'+s.key);
     if(fc){ fc.setAttribute('fill', val>40 ? heatColor(val/ADC_MAX) : '#cbd5e1'); }
     if(ft){ ft.textContent = val; }
@@ -1642,15 +1642,37 @@ function calPoints(key){
     .filter(p => p.adc != null);
 }
 function calRecompute(key){
-  const f = fitPowerLaw(calPoints(key));
-  calib[key].fit = f.ok ? { a:f.a, b:f.b, r2:f.r2, n:f.n } : null;
+  const pts = calPoints(key);
+  const f = fitPowerLaw(pts);
+  if(f.ok){
+    // Highest point actually used in the fit. Converting above this would be
+    // extrapolating a non-linear response, so we refuse instead.
+    const used = pts.filter(p => p.adc > 0 && p.force > 0 && p.adc < ADC_MAX);
+    const maxAdc = Math.max(...used.map(p => p.adc));
+    const maxForce = Math.max(...used.map(p => p.force));
+    calib[key].fit = { a:f.a, b:f.b, r2:f.r2, n:f.n, max_adc:maxAdc, max_force:maxForce };
+  } else {
+    calib[key].fit = null;
+  }
   calib[key]._diag = f;
   calSave();
 }
+
+/* Newtons, or null if uncalibrated OR above the calibrated ceiling. */
 function adcToNewtons(key, adc){
   const f = calib[key] && calib[key].fit;
   if(!f || adc <= 0) return null;
+  if(f.max_adc != null && adc > f.max_adc) return null;   // beyond calibrated range
   return f.a * Math.pow(adc, f.b);
+}
+
+/* What to show next to a live reading. */
+function forceText(key, adc){
+  const f = calib[key] && calib[key].fit;
+  if(!f) return '';
+  if(f.max_adc != null && adc > f.max_adc) return 'above range';
+  const n = adcToNewtons(key, adc);
+  return n == null ? '' : n.toFixed(1) + ' N';
 }
 
 function buildCalUI(){
@@ -1722,9 +1744,18 @@ function renderCalFit(){
       <div class="kvs" style="margin-top:6px;">
         <div><span>R&sup2;</span><b>${f.r2.toFixed(4)}</b></div>
         <div><span>Points used</span><b>${f.n}</b></div>
+        <div><span>Calibrated up to</span><b>${Math.round(f.max_adc)} counts &middot; ${f.max_force.toFixed(1)} N</b></div>
         ${d.excluded ? `<div><span>Excluded (zero or saturated)</span><b>${d.excluded}</b></div>` : ''}
       </div>`;
     if(f.r2 < 0.9) html += `<div style="color:#b45309;font-size:12.5px;margin-top:6px;">R&sup2; is low &mdash; re-check contact point and repeat the runs.</div>`;
+    const idxNow = SENSORS.findIndex(x=>x.key===calSensor);
+    const seen = samples.length ? Math.max(...samples.map(d=>d.v[idxNow])) : 0;
+    if(seen > f.max_adc){
+      html += `<div style="color:#b45309;font-size:12.5px;margin-top:6px;">
+        This sensor has read up to <b>${seen}</b> counts in recorded data, above the
+        calibrated ceiling of <b>${Math.round(f.max_adc)}</b>. Readings past that are
+        reported in raw counts, not newtons. Add a heavier calibration point to extend it.</div>`;
+    }
   }else{
     html = `<span style="color:var(--muted);">Need at least 3 non-zero, unsaturated points. Currently ${d.n||0}.</span>`;
   }
@@ -1790,8 +1821,8 @@ function renderCalib(){
   const idx = SENSORS.findIndex(s=>s.key===calSensor);
   $('calLiveName').textContent = sensorLabel(calSensor);
   const val = latest[idx] || 0;
-  const n = adcToNewtons(calSensor, val);
-  $('calLiveVal').innerHTML = fmt(val) + (n != null ? ` <span style="font-size:15px;color:var(--muted);font-weight:600;">&asymp; ${n.toFixed(1)} N</span>` : '');
+  const t = forceText(calSensor, val);
+  $('calLiveVal').innerHTML = fmt(val) + (t ? ` <span style="font-size:15px;color:var(--muted);font-weight:600;">&asymp; ${t}</span>` : '');
 }
 
 function calExport(){
