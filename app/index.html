@@ -434,6 +434,7 @@
               <button data-act="medial">Medial<small>roll ankle inward</small></button>
               <button data-act="forefoot">Forefoot<small>walk on your toes</small></button>
               <button data-act="heel_slam">Heel slam<small>stamp the heel down</small></button>
+              <button data-act="transition">Transition<small>starting / stopping</small></button>
             </div>
             <div class="kvs" id="actDur" style="margin-top:12px;"></div>
           </div>
@@ -646,8 +647,8 @@ let tare = null;                  // { offsets:[N], at:ISO, samples:n }
 let tareBuf = null;               // collecting while a tare is in progress
 
 /* ---- manual activity labelling ---- */
-const ACTIVITIES = ['standing','normal','lateral','medial','forefoot','heel_slam'];
-const ACTIVITY_LABEL = {standing:'standing', normal:'normal', lateral:'lateral', medial:'medial', forefoot:'forefoot', heel_slam:'heel slam', unknown:'no label'};
+const ACTIVITIES = ['standing','normal','lateral','medial','forefoot','heel_slam','transition'];
+const ACTIVITY_LABEL = {standing:'standing', normal:'normal', lateral:'lateral', medial:'medial', forefoot:'forefoot', heel_slam:'heel slam', transition:'transition', unknown:'no label'};
 let currentActivity = 'unknown';
 let activityDur = Object.fromEntries([...ACTIVITIES,'unknown'].map(k=>[k,0]));
 
